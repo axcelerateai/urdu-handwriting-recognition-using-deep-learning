@@ -1,0 +1,2 @@
+model_checkpoint_path: "CNN_RNN_CTC"
+all_model_checkpoint_paths: "CNN_RNN_CTC"
