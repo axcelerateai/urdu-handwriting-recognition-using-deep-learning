@@ -1,0 +1,55 @@
+{
+	"model": "RNN_CTC",
+	"save_dir": "trained_models/RNN_CTC/UPTI",
+	"data_folder": "data/UPTI",
+
+	"use_gpu": "False",
+
+	"debug_mode": "False",
+
+	"verbose": "True",
+	"max_outputs": "32",
+
+	"char_or_lig": "char",
+	"use_dynamic_lengths": "False",
+
+	"use_teacher_forcing": "False",
+	"use_sparse_labels": "True",
+
+	"save_best": "False",
+	"restore_previous_model": "False",
+	"restore_best_model": "False",
+	"restore_best_model_range": "0",
+	"early_stopping": "True",
+	"stop_after_num_epochs": "10",
+
+	"num_train": "50",
+	"batch_size": "10",
+	"buckets": "2",
+	"num_epochs": "50",
+	"print_every": "1",
+
+	"image_size": "None, 30",
+	"image_width_range": "None",
+	"flip_image": "True",
+
+	"optimizer": "adam",
+	"lr": "0.001",
+
+	"dropout": "0.0",
+	"max_grad_norm": "5",
+	"l2_regularizer_scale": "0.001",
+
+	"anneal_lr": "False",
+	"anneal_lr_every": "20000",
+	"anneal_lr_rate": "0.96",
+
+	"rnn_num_layers": "2",
+	"rnn_unit_type": "lstm",
+	"rnn_type": "bi",
+	"rnn_num_residual_layers": "0",
+	"rnn_num_units": "200",
+
+	"decoder_type": "beam_search",
+	"beam_width": "10"
+}

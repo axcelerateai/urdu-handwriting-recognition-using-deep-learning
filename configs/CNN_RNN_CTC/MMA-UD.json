@@ -1,0 +1,73 @@
+{
+	"model": "CNN_RNN_CTC",
+	"save_dir": "trained_models/CNN_RNN_CTC/MMA-UD",
+	"data_folder": "data/MMA-UD/train",
+
+	"use_gpu": "False",
+
+	"debug_mode": "False",
+
+	"verbose": "True",
+	"max_outputs": "32",
+	"save_alignments": "False",
+
+	"char_or_lig": "char",
+	"use_dynamic_lengths": "False",
+
+	"use_teacher_forcing": "False",
+	"use_sparse_labels": "True",
+
+	"save_best": "True",
+	"restore_previous_model": "False",
+	"restore_best_model": "False",
+	"restore_best_model_range": "1.0",
+	"early_stopping": "False",
+	"stop_after_num_epochs": "2",
+
+	"num_train": "None",
+	"batch_size": "32",
+	"buckets": "4",
+	"num_epochs": "50",
+	"print_every": "40",
+
+	"image_size": "None, 64",
+	"image_width_range": "None",
+	"flip_image": "True",
+
+	"optimizer": "adam",
+
+	"lr": "0.001",
+	"anneal_lr": "True",
+	"anneal_lr_every": "1000",
+	"anneal_lr_rate": "0.96",
+
+	"dropout": "0.2",
+	"max_grad_norm": "5",
+	"l2_regularizer_scale": "0.0",
+
+	"cnn_num_layers": "7",
+	"cnn_num_residual_layers": 0,
+	"cnn_activation": "leaky_relu",
+	"cnn_num_filters": "32, 64, 128, 128, 256, 256, 512",
+	"cnn_filter_sizes": "5, 5, 5, 5, 3, 3, 3",
+	"cnn_strides": "(1,1), (1,1), (1,1), (1,1), (1,1), (1,1), (1,1)",
+	"cnn_paddings": "SAME, SAME, SAME, SAME, SAME, SAME, SAME, SAME",
+	"pool_sizes": "(2,2), (1,2), (1,2), (1,2), (1,2), (1,2), (1,1)",
+	"pool_strides": "(2,2), (1,2), (1,2), (1,2), (1,2), (1,2), (1,1)",
+	"pool_paddings": "SAME, SAME, SAME, SAME, SAME, SAME, SAME",
+	"do_batch_norm": "False, False, True, False, False, False, True",
+
+	"rnn_num_layers": "2",
+	"rnn_unit_type": "lstm",
+	"rnn_type": "bi",
+	"rnn_num_residual_layers": "0",
+	"rnn_num_units": "512",
+
+	"decoder_type": "greedy_search",
+	"beam_width": "10",
+	"lm_path": "trained_models/LM",
+	"ngrams": "3",
+	"alpha": "0.5",
+	"beta": "4",
+	"discard_probability": 0.001
+}

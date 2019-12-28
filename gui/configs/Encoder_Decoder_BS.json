@@ -1,0 +1,90 @@
+{
+	"model": "Encoder_Decoder",
+	"save_dir": "trained_models/Encoder_Decoder/MMA-UD",
+	"data_folder": "data/MMA-UD/train",
+
+	"use_gpu": "True",
+
+	"debug_mode": "False",
+
+	"verbose": "True",
+	"max_outputs": "10",
+	"save_alignments": "False",
+
+	"char_or_lig": "char",
+	"use_dynamic_lengths": "False",
+
+	"use_teacher_forcing": "True",
+	"use_sparse_labels": "False",
+
+	"save_best": "True",
+	"restore_previous_model": "False",
+	"restore_best_model": "False",
+	"restore_best_model_range": "1.0",
+	"early_stopping": "False",
+	"stop_after_num_epochs": "10",
+
+	"num_train": "None",
+	"batch_size": "32",
+	"buckets": "5",
+	"num_epochs": "100",
+	"print_every": "40",
+
+	"image_size": "None, 64",
+	"image_width_range": "None",
+	"flip_image": "False",
+
+	"optimizer": "adam",
+
+	"lr": "0.001",
+	"anneal_lr": "True",
+	"anneal_lr_every": "4000",
+	"anneal_lr_rate": "0.96",
+
+	"dropout": "0.2",
+	"max_grad_norm": "5",
+	"l2_regularizer_scale": "0.0",
+
+	"extract_features": "True",
+	"cnn_num_layers": "7",
+	"cnn_num_residual_layers": "0",
+	"cnn_activation": "leaky_relu",
+	"cnn_num_filters": "16, 32, 64, 64, 128, 128, 128",
+	"cnn_filter_sizes": "5, 5, 5, 3, 3, 3, 2",
+	"cnn_strides": "(1,1), (1,1), (1,1), (1,1), (1,1), (1,1), (1,1)",
+	"cnn_paddings": "SAME, SAME, SAME, SAME, SAME, SAME, SAME",
+	"pool_sizes": "(2,2), (1,2), (1,2), (1,2), (1,2), (1,2), (1,1)",
+	"pool_strides": "(2,2), (1,2), (1,2), (1,2), (1,2), (1,2), (1,1)",
+	"pool_paddings": "SAME, SAME, SAME, SAME, SAME, SAME, SAME",
+	"do_batch_norm": "False, True, False, True, False, False, True",
+
+	"encoder_num_layers": "2",
+	"encoder_unit_type": "layer_norm_lstm",
+	"encoder_type": "bi",
+	"encoder_num_residual_layers": "0",
+	"encoder_num_units": "512",
+
+	"embed_size": "256",
+
+	"use_attention": "True",
+	"attention_type": "bahdanau",
+	"attention_num_units": "512",
+	"output_attention": "False",
+
+	"pass_hidden_state": "True",
+	"decoder_num_layers": "2",
+	"decoder_unit_type": "layer_norm_lstm",
+	"decoder_num_residual_layers": "0",
+	"decoder_num_units": "512",
+
+	"do_scheduled_sampling": "True",
+	"initial_not_sampling_prob": "0.80",
+	"anneal_not_sampling_prob": "True",
+	"anneal_not_sampling_prob_every": "4000",
+	"anneal_not_sampling_prob_rate": "0.96",
+
+	"decoder_type": "beam_search",
+	"beam_width": "10",
+	"coverage_penalty_weight": "0.0",
+	"length_penalty_weight": "0.0"
+}
