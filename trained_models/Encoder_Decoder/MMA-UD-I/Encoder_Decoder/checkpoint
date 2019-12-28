@@ -1,0 +1,2 @@
+model_checkpoint_path: "Encoder_Decoder"
+all_model_checkpoint_paths: "Encoder_Decoder"

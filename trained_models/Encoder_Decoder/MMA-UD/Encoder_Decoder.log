@@ -1,0 +1,1182 @@
+----------------------------------------------------------------------
+                         Starting a new model
+----------------------------------------------------------------------
+Logging model parameters:
+model: Encoder_Decoder
+save_dir: trained_models/Encoder_Decoder/MMA-UD
+data_folder: data/MMA-UD/train
+use_gpu: False
+debug_mode: False
+verbose: True
+max_outputs: 10
+save_alignments: False
+char_or_lig: char
+use_dynamic_lengths: False
+use_teacher_forcing: True
+use_sparse_labels: False
+save_best: True
+restore_previous_model: False
+restore_best_model: False
+restore_best_model_range: 1.0
+early_stopping: False
+stop_after_num_epochs: 10
+num_train: None
+batch_size: 32
+buckets: 5
+num_epochs: 100
+print_every: 40
+image_size: [None, 64]
+image_width_range: None
+flip_image: False
+optimizer: adam
+lr: 0.001
+anneal_lr: True
+anneal_lr_every: 4000
+anneal_lr_rate: 0.96
+dropout: 0.2
+max_grad_norm: 5.0
+l2_regularizer_scale: 0.0
+extract_features: True
+cnn_num_layers: 7
+cnn_num_residual_layers: 0
+cnn_activation: leaky_relu
+cnn_num_filters: [16, 32, 64, 64, 128, 128, 128]
+cnn_filter_sizes: [5, 5, 5, 3, 3, 3, 2]
+cnn_strides: [(1, 1), (1, 1), (1, 1), (1, 1), (1, 1), (1, 1), (1, 1)]
+cnn_paddings: ['SAME', 'SAME', 'SAME', 'SAME', 'SAME', 'SAME', 'SAME']
+pool_sizes: [(2, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 1)]
+pool_strides: [(2, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 2), (1, 1)]
+pool_paddings: ['SAME', 'SAME', 'SAME', 'SAME', 'SAME', 'SAME', 'SAME']
+do_batch_norm: [False, True, False, True, False, False, True]
+encoder_num_layers: 2
+encoder_unit_type: layer_norm_lstm
+encoder_type: bi
+encoder_num_residual_layers: 0
+encoder_num_units: 512
+embed_size: 256
+use_attention: True
+attention_type: bahdanau
+attention_num_units: 512
+output_attention: False
+pass_hidden_state: True
+decoder_num_layers: 2
+decoder_unit_type: layer_norm_lstm
+decoder_num_residual_layers: 0
+decoder_num_units: 512
+do_scheduled_sampling: True
+initial_not_sampling_prob: 0.8
+anneal_not_sampling_prob: True
+anneal_not_sampling_prob_every: 4000.0
+anneal_not_sampling_prob_rate: 0.96
+decoder_type: greedy_search
+beam_width: 10
+coverage_penalty_weight: 0.0
+length_penalty_weight: 0.0
+
+--------------------------------------------------
+Initializing Model and Building Graph
+--------------------------------------------------
+Number of training examples: 10683
+Number of validation examples: 2668
+Vocab Size: 144 
+Maximum Length of Output Sequence: 88
+Time taken to build graph: 008.73317 secs
+Time to initialize model (including to load data): 209.196903 secs
+
+--------------------------------------------------
+Starting Training
+--------------------------------------------------
+
+Initializing with new values
+Number of params: 9432832 (retreival took 41.943870 secs)
+
+Epoch 1 / 0
+Iteration: 000 Loss: 0103.70158 Accuracy (Levenshtein): 010.85% Time taken: 014.66724 secs
+Iteration: 040 Loss: 0168.45596 Accuracy (Levenshtein): 006.29% Time taken: 012.12431 secs
+Iteration: 080 Loss: 0140.21417 Accuracy (Levenshtein): 011.01% Time taken: 011.47379 secs
+Iteration: 120 Loss: 0185.67010 Accuracy (Levenshtein): 008.99% Time taken: 012.64105 secs
+Iteration: 160 Loss: 0205.58092 Accuracy (Levenshtein): 009.07% Time taken: 018.34326 secs
+Iteration: 200 Loss: 0178.60612 Accuracy (Levenshtein): 010.69% Time taken: 018.56033 secs
+Iteration: 240 Loss: 0178.54558 Accuracy (Levenshtein): 013.91% Time taken: 018.18741 secs
+Iteration: 280 Loss: 0202.94380 Accuracy (Levenshtein): 015.75% Time taken: 019.19870 secs
+Iteration: 320 Loss: 0240.69913 Accuracy (Levenshtein): 016.50% Time taken: 026.07764 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0193.16557 Accuracy (Levenshtein): 013.06%
+Without teacher forcing: Accuracy (Levenshtein): 013.91%
+Time taken for this epoch: 6107.68743
+
+Epoch 2 / 1
+Iteration: 000 Loss: 0098.61272 Accuracy (Levenshtein): 023.37% Time taken: 005.97055 secs
+Iteration: 040 Loss: 0148.63254 Accuracy (Levenshtein): 017.06% Time taken: 012.55227 secs
+Iteration: 080 Loss: 0164.54018 Accuracy (Levenshtein): 018.20% Time taken: 012.70741 secs
+Iteration: 120 Loss: 0174.24184 Accuracy (Levenshtein): 020.71% Time taken: 013.62855 secs
+Iteration: 160 Loss: 0163.65138 Accuracy (Levenshtein): 020.86% Time taken: 018.41159 secs
+Iteration: 200 Loss: 0196.29369 Accuracy (Levenshtein): 018.41% Time taken: 019.29353 secs
+Iteration: 240 Loss: 0174.39680 Accuracy (Levenshtein): 023.10% Time taken: 018.96970 secs
+Iteration: 280 Loss: 0199.65024 Accuracy (Levenshtein): 022.49% Time taken: 019.70131 secs
+Iteration: 320 Loss: 0196.03625 Accuracy (Levenshtein): 022.52% Time taken: 024.99858 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0180.57367 Accuracy (Levenshtein): 018.09%
+Without teacher forcing: Accuracy (Levenshtein): 013.06%
+Time taken for this epoch: 6066.82711
+
+Epoch 3 / 2
+Iteration: 000 Loss: 0068.15381 Accuracy (Levenshtein): 029.83% Time taken: 005.42762 secs
+Iteration: 040 Loss: 0156.24060 Accuracy (Levenshtein): 020.51% Time taken: 012.64481 secs
+Iteration: 080 Loss: 0144.03114 Accuracy (Levenshtein): 021.35% Time taken: 012.14678 secs
+Iteration: 120 Loss: 0174.54823 Accuracy (Levenshtein): 021.57% Time taken: 013.65040 secs
+Iteration: 160 Loss: 0133.93605 Accuracy (Levenshtein): 021.28% Time taken: 017.14289 secs
+Iteration: 200 Loss: 0169.94150 Accuracy (Levenshtein): 023.30% Time taken: 019.01737 secs
+Iteration: 240 Loss: 0208.85516 Accuracy (Levenshtein): 021.21% Time taken: 020.13602 secs
+Iteration: 280 Loss: 0157.91273 Accuracy (Levenshtein): 024.16% Time taken: 018.16459 secs
+Iteration: 320 Loss: 0235.06937 Accuracy (Levenshtein): 022.91% Time taken: 026.10053 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0183.19673 Accuracy (Levenshtein): 016.13%
+Without teacher forcing: Accuracy (Levenshtein): 011.26%
+Time taken for this epoch: 6159.00908
+
+Epoch 4 / 2
+Iteration: 000 Loss: 0075.73587 Accuracy (Levenshtein): 029.85% Time taken: 005.67686 secs
+Iteration: 040 Loss: 0140.87627 Accuracy (Levenshtein): 022.92% Time taken: 012.41247 secs
+Iteration: 080 Loss: 0115.01790 Accuracy (Levenshtein): 023.18% Time taken: 011.68547 secs
+Iteration: 120 Loss: 0165.08571 Accuracy (Levenshtein): 022.84% Time taken: 013.46238 secs
+Iteration: 160 Loss: 0163.40933 Accuracy (Levenshtein): 024.15% Time taken: 018.81114 secs
+Iteration: 200 Loss: 0154.70416 Accuracy (Levenshtein): 025.34% Time taken: 018.59455 secs
+Iteration: 240 Loss: 0186.99971 Accuracy (Levenshtein): 022.86% Time taken: 019.43145 secs
+Iteration: 280 Loss: 0184.16621 Accuracy (Levenshtein): 023.86% Time taken: 019.35651 secs
+Iteration: 320 Loss: 0175.92307 Accuracy (Levenshtein): 023.71% Time taken: 024.29399 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0169.56936 Accuracy (Levenshtein): 020.77%
+Without teacher forcing: Accuracy (Levenshtein): 013.89%
+Time taken for this epoch: 6199.24384
+
+Epoch 5 / 4
+Iteration: 000 Loss: 0094.30495 Accuracy (Levenshtein): 031.41% Time taken: 006.18547 secs
+Iteration: 040 Loss: 0145.75998 Accuracy (Levenshtein): 026.39% Time taken: 013.06565 secs
+Iteration: 080 Loss: 0144.12692 Accuracy (Levenshtein): 027.23% Time taken: 013.08112 secs
+Iteration: 120 Loss: 0148.01080 Accuracy (Levenshtein): 024.56% Time taken: 013.21561 secs
+Iteration: 160 Loss: 0147.78300 Accuracy (Levenshtein): 023.13% Time taken: 017.81168 secs
+Iteration: 200 Loss: 0163.14986 Accuracy (Levenshtein): 024.69% Time taken: 018.66869 secs
+Iteration: 240 Loss: 0164.07262 Accuracy (Levenshtein): 024.67% Time taken: 018.50309 secs
+Iteration: 280 Loss: 0156.92488 Accuracy (Levenshtein): 024.39% Time taken: 018.23684 secs
+Iteration: 320 Loss: 0212.81003 Accuracy (Levenshtein): 023.41% Time taken: 026.53805 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0178.30724 Accuracy (Levenshtein): 017.97%
+Without teacher forcing: Accuracy (Levenshtein): 013.13%
+Time taken for this epoch: 6065.68119
+
+Epoch 6 / 4
+Iteration: 000 Loss: 0085.90269 Accuracy (Levenshtein): 039.94% Time taken: 005.98347 secs
+Iteration: 040 Loss: 0119.49636 Accuracy (Levenshtein): 027.42% Time taken: 012.39792 secs
+Iteration: 080 Loss: 0124.13419 Accuracy (Levenshtein): 026.87% Time taken: 012.47590 secs
+Iteration: 120 Loss: 0171.68991 Accuracy (Levenshtein): 027.79% Time taken: 013.64958 secs
+Iteration: 160 Loss: 0173.80624 Accuracy (Levenshtein): 026.25% Time taken: 019.92774 secs
+Iteration: 200 Loss: 0174.69617 Accuracy (Levenshtein): 025.81% Time taken: 019.54971 secs
+Iteration: 240 Loss: 0151.16655 Accuracy (Levenshtein): 026.57% Time taken: 018.23648 secs
+Iteration: 280 Loss: 0176.02254 Accuracy (Levenshtein): 026.86% Time taken: 019.23249 secs
+Iteration: 320 Loss: 0176.69080 Accuracy (Levenshtein): 025.10% Time taken: 025.09097 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0167.29453 Accuracy (Levenshtein): 021.83%
+Without teacher forcing: Accuracy (Levenshtein): 016.16%
+Time taken for this epoch: 6087.45252
+
+Epoch 7 / 6
+Iteration: 000 Loss: 0076.71074 Accuracy (Levenshtein): 033.51% Time taken: 005.72231 secs
+Iteration: 040 Loss: 0126.98791 Accuracy (Levenshtein): 029.27% Time taken: 012.25389 secs
+Iteration: 080 Loss: 0121.92237 Accuracy (Levenshtein): 025.39% Time taken: 011.88397 secs
+Iteration: 120 Loss: 0137.53329 Accuracy (Levenshtein): 029.02% Time taken: 011.84660 secs
+Iteration: 160 Loss: 0160.52898 Accuracy (Levenshtein): 027.41% Time taken: 017.93050 secs
+Iteration: 200 Loss: 0152.28079 Accuracy (Levenshtein): 026.15% Time taken: 017.07307 secs
+Iteration: 240 Loss: 0201.04617 Accuracy (Levenshtein): 027.43% Time taken: 019.64615 secs
+Iteration: 280 Loss: 0204.66476 Accuracy (Levenshtein): 029.01% Time taken: 018.90744 secs
+Iteration: 320 Loss: 0232.27100 Accuracy (Levenshtein): 025.78% Time taken: 027.02280 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0168.03092 Accuracy (Levenshtein): 022.45%
+Without teacher forcing: Accuracy (Levenshtein): 015.38%
+Time taken for this epoch: 5721.73116
+
+Epoch 8 / 6
+Iteration: 000 Loss: 0085.79286 Accuracy (Levenshtein): 036.73% Time taken: 006.13599 secs
+Iteration: 040 Loss: 0129.11667 Accuracy (Levenshtein): 024.93% Time taken: 012.90656 secs
+Iteration: 080 Loss: 0131.79541 Accuracy (Levenshtein): 026.89% Time taken: 012.53951 secs
+Iteration: 120 Loss: 0149.63519 Accuracy (Levenshtein): 029.47% Time taken: 013.24547 secs
+Iteration: 160 Loss: 0165.01334 Accuracy (Levenshtein): 025.49% Time taken: 018.68800 secs
+Iteration: 200 Loss: 0190.45114 Accuracy (Levenshtein): 029.05% Time taken: 019.97170 secs
+Iteration: 240 Loss: 0151.59428 Accuracy (Levenshtein): 026.06% Time taken: 018.97420 secs
+Iteration: 280 Loss: 0217.46999 Accuracy (Levenshtein): 025.17% Time taken: 021.66697 secs
+Iteration: 320 Loss: 0183.58481 Accuracy (Levenshtein): 025.44% Time taken: 026.72106 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0167.28377 Accuracy (Levenshtein): 022.05%
+Without teacher forcing: Accuracy (Levenshtein): 015.43%
+Time taken for this epoch: 6057.94884
+
+Epoch 9 / 8
+Iteration: 000 Loss: 0058.07311 Accuracy (Levenshtein): 039.20% Time taken: 005.31821 secs
+Iteration: 040 Loss: 0116.86536 Accuracy (Levenshtein): 026.87% Time taken: 012.13941 secs
+Iteration: 080 Loss: 0143.33873 Accuracy (Levenshtein): 027.07% Time taken: 012.97612 secs
+Iteration: 120 Loss: 0118.57751 Accuracy (Levenshtein): 029.06% Time taken: 012.18365 secs
+Iteration: 160 Loss: 0170.21614 Accuracy (Levenshtein): 027.54% Time taken: 018.69353 secs
+Iteration: 200 Loss: 0128.84514 Accuracy (Levenshtein): 027.76% Time taken: 016.27156 secs
+Iteration: 240 Loss: 0166.01398 Accuracy (Levenshtein): 024.95% Time taken: 019.02715 secs
+Iteration: 280 Loss: 0201.89835 Accuracy (Levenshtein): 026.41% Time taken: 019.69942 secs
+Iteration: 320 Loss: 0157.93005 Accuracy (Levenshtein): 028.62% Time taken: 022.73241 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0167.64056 Accuracy (Levenshtein): 021.80%
+Without teacher forcing: Accuracy (Levenshtein): 015.81%
+Time taken for this epoch: 5804.64539
+
+Epoch 10 / 8
+Iteration: 000 Loss: 0072.41298 Accuracy (Levenshtein): 037.47% Time taken: 005.43908 secs
+Iteration: 040 Loss: 0133.49895 Accuracy (Levenshtein): 028.24% Time taken: 012.33573 secs
+Iteration: 080 Loss: 0114.11188 Accuracy (Levenshtein): 029.19% Time taken: 011.32517 secs
+Iteration: 120 Loss: 0110.36230 Accuracy (Levenshtein): 029.44% Time taken: 011.77844 secs
+Iteration: 160 Loss: 0147.87746 Accuracy (Levenshtein): 028.39% Time taken: 018.23034 secs
+Iteration: 200 Loss: 0158.02202 Accuracy (Levenshtein): 027.81% Time taken: 017.57209 secs
+Iteration: 240 Loss: 0157.95566 Accuracy (Levenshtein): 028.58% Time taken: 017.42292 secs
+Iteration: 280 Loss: 0162.41692 Accuracy (Levenshtein): 027.96% Time taken: 017.24794 secs
+Iteration: 320 Loss: 0176.01880 Accuracy (Levenshtein): 027.51% Time taken: 022.62606 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0167.23064 Accuracy (Levenshtein): 022.14%
+Without teacher forcing: Accuracy (Levenshtein): 015.37%
+Time taken for this epoch: 5673.07311
+
+Epoch 11 / 10
+Iteration: 000 Loss: 0073.64624 Accuracy (Levenshtein): 039.30% Time taken: 005.18793 secs
+Iteration: 040 Loss: 0162.57797 Accuracy (Levenshtein): 027.66% Time taken: 012.13538 secs
+Iteration: 080 Loss: 0136.79318 Accuracy (Levenshtein): 028.22% Time taken: 012.97296 secs
+Iteration: 120 Loss: 0127.99943 Accuracy (Levenshtein): 029.84% Time taken: 011.93604 secs
+Iteration: 160 Loss: 0175.98466 Accuracy (Levenshtein): 029.85% Time taken: 019.63169 secs
+Iteration: 200 Loss: 0179.05690 Accuracy (Levenshtein): 031.89% Time taken: 018.20527 secs
+Iteration: 240 Loss: 0144.49861 Accuracy (Levenshtein): 027.96% Time taken: 017.35254 secs
+Iteration: 280 Loss: 0152.95265 Accuracy (Levenshtein): 030.57% Time taken: 018.91627 secs
+Iteration: 320 Loss: 0191.26611 Accuracy (Levenshtein): 030.13% Time taken: 024.16250 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0166.00607 Accuracy (Levenshtein): 024.15%
+Without teacher forcing: Accuracy (Levenshtein): 016.99%
+Time taken for this epoch: 5668.60322
+
+Epoch 12 / 11
+Iteration: 000 Loss: 0090.16737 Accuracy (Levenshtein): 040.32% Time taken: 006.11748 secs
+Iteration: 040 Loss: 0113.74519 Accuracy (Levenshtein): 032.00% Time taken: 012.24039 secs
+Iteration: 080 Loss: 0119.32159 Accuracy (Levenshtein): 032.49% Time taken: 011.35510 secs
+Iteration: 120 Loss: 0115.25867 Accuracy (Levenshtein): 031.41% Time taken: 011.74373 secs
+Iteration: 160 Loss: 0123.06600 Accuracy (Levenshtein): 030.94% Time taken: 017.96740 secs
+Iteration: 200 Loss: 0187.49881 Accuracy (Levenshtein): 030.58% Time taken: 018.84248 secs
+Iteration: 240 Loss: 0140.97809 Accuracy (Levenshtein): 032.75% Time taken: 019.04929 secs
+Iteration: 280 Loss: 0151.06438 Accuracy (Levenshtein): 031.42% Time taken: 018.69721 secs
+Iteration: 320 Loss: 0204.72150 Accuracy (Levenshtein): 032.15% Time taken: 026.25404 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0155.44178 Accuracy (Levenshtein): 029.29%
+Without teacher forcing: Accuracy (Levenshtein): 014.82%
+Time taken for this epoch: 5868.84429
+
+Epoch 13 / 12
+Iteration: 000 Loss: 0061.12920 Accuracy (Levenshtein): 040.55% Time taken: 005.52400 secs
+Iteration: 040 Loss: 0117.85516 Accuracy (Levenshtein): 031.12% Time taken: 011.72747 secs
+Iteration: 080 Loss: 0106.75221 Accuracy (Levenshtein): 035.15% Time taken: 011.96405 secs
+Iteration: 120 Loss: 0114.14291 Accuracy (Levenshtein): 031.33% Time taken: 012.03265 secs
+Iteration: 160 Loss: 0142.45540 Accuracy (Levenshtein): 031.14% Time taken: 018.74564 secs
+Iteration: 200 Loss: 0131.66319 Accuracy (Levenshtein): 032.45% Time taken: 017.93499 secs
+Iteration: 240 Loss: 0166.03465 Accuracy (Levenshtein): 029.85% Time taken: 020.23783 secs
+Iteration: 280 Loss: 0144.94043 Accuracy (Levenshtein): 028.49% Time taken: 017.48771 secs
+Iteration: 320 Loss: 0147.64920 Accuracy (Levenshtein): 029.49% Time taken: 023.66550 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0151.62295 Accuracy (Levenshtein): 030.54%
+Without teacher forcing: Accuracy (Levenshtein): 014.47%
+Time taken for this epoch: 6051.98141
+
+Epoch 14 / 13
+Iteration: 000 Loss: 0065.88290 Accuracy (Levenshtein): 041.80% Time taken: 005.63374 secs
+Iteration: 040 Loss: 0140.24712 Accuracy (Levenshtein): 030.54% Time taken: 013.28638 secs
+Iteration: 080 Loss: 0115.73107 Accuracy (Levenshtein): 031.02% Time taken: 012.49207 secs
+Iteration: 120 Loss: 0132.67717 Accuracy (Levenshtein): 035.71% Time taken: 013.72344 secs
+Iteration: 160 Loss: 0180.10585 Accuracy (Levenshtein): 030.82% Time taken: 022.30796 secs
+Iteration: 200 Loss: 0152.29877 Accuracy (Levenshtein): 032.80% Time taken: 019.33261 secs
+Iteration: 240 Loss: 0136.28790 Accuracy (Levenshtein): 031.79% Time taken: 018.06301 secs
+Iteration: 280 Loss: 0122.43570 Accuracy (Levenshtein): 034.74% Time taken: 018.14876 secs
+Iteration: 320 Loss: 0150.99689 Accuracy (Levenshtein): 033.44% Time taken: 024.08235 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0162.63843 Accuracy (Levenshtein): 030.48%
+Without teacher forcing: Accuracy (Levenshtein): 007.78%
+Time taken for this epoch: 6125.73409
+
+Epoch 15 / 13
+Iteration: 000 Loss: 0056.29496 Accuracy (Levenshtein): 043.78% Time taken: 005.51889 secs
+Iteration: 040 Loss: 0142.14545 Accuracy (Levenshtein): 033.69% Time taken: 013.06615 secs
+Iteration: 080 Loss: 0110.32619 Accuracy (Levenshtein): 031.41% Time taken: 012.54656 secs
+Iteration: 120 Loss: 0104.02033 Accuracy (Levenshtein): 034.02% Time taken: 012.16635 secs
+Iteration: 160 Loss: 0156.03619 Accuracy (Levenshtein): 034.13% Time taken: 020.05081 secs
+Iteration: 200 Loss: 0143.65892 Accuracy (Levenshtein): 034.19% Time taken: 018.91982 secs
+Iteration: 240 Loss: 0140.59700 Accuracy (Levenshtein): 036.93% Time taken: 018.97563 secs
+Iteration: 280 Loss: 0123.66172 Accuracy (Levenshtein): 040.48% Time taken: 018.11523 secs
+Iteration: 320 Loss: 0187.95927 Accuracy (Levenshtein): 033.98% Time taken: 027.37274 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0165.61334 Accuracy (Levenshtein): 030.93%
+Without teacher forcing: Accuracy (Levenshtein): 005.52%
+Time taken for this epoch: 6151.52003
+
+Epoch 16 / 13
+Iteration: 000 Loss: 0073.06257 Accuracy (Levenshtein): 046.83% Time taken: 006.17626 secs
+Iteration: 040 Loss: 0122.64821 Accuracy (Levenshtein): 036.32% Time taken: 013.13932 secs
+Iteration: 080 Loss: 0129.20111 Accuracy (Levenshtein): 041.21% Time taken: 014.23070 secs
+Iteration: 120 Loss: 0106.26080 Accuracy (Levenshtein): 041.87% Time taken: 013.11203 secs
+Iteration: 160 Loss: 0127.71980 Accuracy (Levenshtein): 038.95% Time taken: 018.86292 secs
+Iteration: 200 Loss: 0129.38843 Accuracy (Levenshtein): 042.33% Time taken: 019.14573 secs
+Iteration: 240 Loss: 0181.41879 Accuracy (Levenshtein): 042.37% Time taken: 022.82150 secs
+Iteration: 280 Loss: 0112.18085 Accuracy (Levenshtein): 044.52% Time taken: 019.00000 secs
+Iteration: 320 Loss: 0126.42107 Accuracy (Levenshtein): 041.07% Time taken: 024.43499 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0162.53324 Accuracy (Levenshtein): 032.85%
+Without teacher forcing: Accuracy (Levenshtein): 013.25%
+Time taken for this epoch: 6192.49613
+
+Epoch 17 / 13
+Iteration: 000 Loss: 0061.93879 Accuracy (Levenshtein): 048.94% Time taken: 006.00080 secs
+Iteration: 040 Loss: 0099.59158 Accuracy (Levenshtein): 037.57% Time taken: 012.32562 secs
+Iteration: 080 Loss: 0104.80809 Accuracy (Levenshtein): 045.26% Time taken: 012.95483 secs
+Iteration: 120 Loss: 0091.05980 Accuracy (Levenshtein): 046.14% Time taken: 012.29294 secs
+Iteration: 160 Loss: 0126.85480 Accuracy (Levenshtein): 043.97% Time taken: 019.14748 secs
+Iteration: 200 Loss: 0110.12794 Accuracy (Levenshtein): 045.33% Time taken: 017.99928 secs
+Iteration: 240 Loss: 0111.26530 Accuracy (Levenshtein): 044.30% Time taken: 017.95585 secs
+Iteration: 280 Loss: 0108.35722 Accuracy (Levenshtein): 046.81% Time taken: 019.15644 secs
+Iteration: 320 Loss: 0116.68456 Accuracy (Levenshtein): 043.54% Time taken: 023.57685 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0159.81541 Accuracy (Levenshtein): 035.98%
+Without teacher forcing: Accuracy (Levenshtein): 016.19%
+Time taken for this epoch: 6177.75121
+
+Epoch 18 / 13
+Iteration: 000 Loss: 0060.46319 Accuracy (Levenshtein): 056.53% Time taken: 006.09377 secs
+Iteration: 040 Loss: 0096.98071 Accuracy (Levenshtein): 043.01% Time taken: 012.99959 secs
+Iteration: 080 Loss: 0080.31779 Accuracy (Levenshtein): 050.41% Time taken: 012.47070 secs
+Iteration: 120 Loss: 0085.97746 Accuracy (Levenshtein): 050.95% Time taken: 012.29664 secs
+Iteration: 160 Loss: 0104.77026 Accuracy (Levenshtein): 048.38% Time taken: 018.28537 secs
+Iteration: 200 Loss: 0093.62622 Accuracy (Levenshtein): 048.35% Time taken: 017.99232 secs
+Iteration: 240 Loss: 0116.90425 Accuracy (Levenshtein): 046.63% Time taken: 019.46194 secs
+Iteration: 280 Loss: 0110.40195 Accuracy (Levenshtein): 048.78% Time taken: 018.93318 secs
+Iteration: 320 Loss: 0145.90164 Accuracy (Levenshtein): 047.01% Time taken: 027.05122 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0184.97602 Accuracy (Levenshtein): 031.01%
+Without teacher forcing: Accuracy (Levenshtein): 011.28%
+Time taken for this epoch: 6235.78078
+
+Epoch 19 / 13
+Iteration: 000 Loss: 0050.54377 Accuracy (Levenshtein): 048.81% Time taken: 006.00827 secs
+Iteration: 040 Loss: 0123.53609 Accuracy (Levenshtein): 041.94% Time taken: 012.90774 secs
+Iteration: 080 Loss: 0074.64569 Accuracy (Levenshtein): 052.90% Time taken: 012.60003 secs
+Iteration: 120 Loss: 0081.76628 Accuracy (Levenshtein): 055.31% Time taken: 013.17977 secs
+Iteration: 160 Loss: 0137.17845 Accuracy (Levenshtein): 047.47% Time taken: 020.03592 secs
+Iteration: 200 Loss: 0098.08039 Accuracy (Levenshtein): 053.00% Time taken: 018.72012 secs
+Iteration: 240 Loss: 0084.44566 Accuracy (Levenshtein): 056.47% Time taken: 018.26879 secs
+Iteration: 280 Loss: 0112.87845 Accuracy (Levenshtein): 055.30% Time taken: 019.54646 secs
+Iteration: 320 Loss: 0103.64600 Accuracy (Levenshtein): 051.50% Time taken: 023.73851 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0148.99689 Accuracy (Levenshtein): 040.22%
+Without teacher forcing: Accuracy (Levenshtein): 027.11%
+Time taken for this epoch: 6149.14348
+
+Epoch 20 / 19
+Iteration: 000 Loss: 0037.29528 Accuracy (Levenshtein): 060.83% Time taken: 005.73678 secs
+Iteration: 040 Loss: 0074.61549 Accuracy (Levenshtein): 052.90% Time taken: 012.23885 secs
+Iteration: 080 Loss: 0073.24897 Accuracy (Levenshtein): 056.50% Time taken: 012.98868 secs
+Iteration: 120 Loss: 0080.67369 Accuracy (Levenshtein): 056.16% Time taken: 011.97414 secs
+Iteration: 160 Loss: 0126.99359 Accuracy (Levenshtein): 054.82% Time taken: 019.86909 secs
+Iteration: 200 Loss: 0090.05575 Accuracy (Levenshtein): 054.27% Time taken: 017.77986 secs
+Iteration: 240 Loss: 0097.19142 Accuracy (Levenshtein): 056.14% Time taken: 020.03512 secs
+Iteration: 280 Loss: 0107.29193 Accuracy (Levenshtein): 061.70% Time taken: 019.74029 secs
+Iteration: 320 Loss: 0125.52831 Accuracy (Levenshtein): 055.86% Time taken: 027.38891 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0175.25890 Accuracy (Levenshtein): 035.47%
+Without teacher forcing: Accuracy (Levenshtein): 010.07%
+Time taken for this epoch: 6144.82513
+
+Epoch 21 / 19
+Iteration: 000 Loss: 0041.60223 Accuracy (Levenshtein): 062.57% Time taken: 005.79776 secs
+Iteration: 040 Loss: 0095.04792 Accuracy (Levenshtein): 057.02% Time taken: 013.59491 secs
+Iteration: 080 Loss: 0061.71923 Accuracy (Levenshtein): 060.65% Time taken: 012.33385 secs
+Iteration: 120 Loss: 0062.37114 Accuracy (Levenshtein): 059.34% Time taken: 012.22297 secs
+Iteration: 160 Loss: 0068.31512 Accuracy (Levenshtein): 062.21% Time taken: 017.63052 secs
+Iteration: 200 Loss: 0092.62991 Accuracy (Levenshtein): 060.76% Time taken: 019.41643 secs
+Iteration: 240 Loss: 0078.47287 Accuracy (Levenshtein): 063.99% Time taken: 018.21974 secs
+Iteration: 280 Loss: 0090.47940 Accuracy (Levenshtein): 062.32% Time taken: 019.93322 secs
+Iteration: 320 Loss: 0129.68307 Accuracy (Levenshtein): 058.77% Time taken: 026.86684 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0143.64169 Accuracy (Levenshtein): 047.77%
+Without teacher forcing: Accuracy (Levenshtein): 034.84%
+Time taken for this epoch: 6084.92833
+
+Epoch 22 / 21
+Iteration: 000 Loss: 0023.67642 Accuracy (Levenshtein): 068.37% Time taken: 006.08674 secs
+Iteration: 040 Loss: 0061.73613 Accuracy (Levenshtein): 058.17% Time taken: 012.22968 secs
+Iteration: 080 Loss: 0059.42296 Accuracy (Levenshtein): 065.56% Time taken: 013.06975 secs
+Iteration: 120 Loss: 0045.75288 Accuracy (Levenshtein): 065.82% Time taken: 011.56226 secs
+Iteration: 160 Loss: 0099.34641 Accuracy (Levenshtein): 059.60% Time taken: 019.90421 secs
+Iteration: 200 Loss: 0100.45934 Accuracy (Levenshtein): 064.56% Time taken: 019.77912 secs
+Iteration: 240 Loss: 0066.05197 Accuracy (Levenshtein): 064.40% Time taken: 019.33801 secs
+Iteration: 280 Loss: 0076.32133 Accuracy (Levenshtein): 064.32% Time taken: 018.97987 secs
+Iteration: 320 Loss: 0095.93815 Accuracy (Levenshtein): 063.17% Time taken: 027.13310 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0112.12175 Accuracy (Levenshtein): 053.95%
+Without teacher forcing: Accuracy (Levenshtein): 039.83%
+Time taken for this epoch: 6154.96708
+
+Epoch 23 / 22
+Iteration: 000 Loss: 0023.80370 Accuracy (Levenshtein): 074.20% Time taken: 006.17703 secs
+Iteration: 040 Loss: 0059.44226 Accuracy (Levenshtein): 062.23% Time taken: 011.51964 secs
+Iteration: 080 Loss: 0044.92194 Accuracy (Levenshtein): 066.25% Time taken: 011.51379 secs
+Iteration: 120 Loss: 0050.05008 Accuracy (Levenshtein): 068.71% Time taken: 012.04529 secs
+Iteration: 160 Loss: 0061.22353 Accuracy (Levenshtein): 067.92% Time taken: 018.22095 secs
+Iteration: 200 Loss: 0075.14420 Accuracy (Levenshtein): 064.10% Time taken: 017.13401 secs
+Iteration: 240 Loss: 0064.54891 Accuracy (Levenshtein): 067.46% Time taken: 018.67689 secs
+Iteration: 280 Loss: 0058.81220 Accuracy (Levenshtein): 070.65% Time taken: 018.74618 secs
+Iteration: 320 Loss: 0103.73158 Accuracy (Levenshtein): 066.93% Time taken: 024.38834 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0122.68962 Accuracy (Levenshtein): 054.07%
+Without teacher forcing: Accuracy (Levenshtein): 044.20%
+Time taken for this epoch: 5874.90978
+
+Epoch 24 / 22
+Iteration: 000 Loss: 0018.59301 Accuracy (Levenshtein): 068.50% Time taken: 005.37116 secs
+Iteration: 040 Loss: 0038.23489 Accuracy (Levenshtein): 067.78% Time taken: 010.67202 secs
+Iteration: 080 Loss: 0081.37381 Accuracy (Levenshtein): 069.02% Time taken: 014.30435 secs
+Iteration: 120 Loss: 0049.59840 Accuracy (Levenshtein): 070.54% Time taken: 012.68473 secs
+Iteration: 160 Loss: 0067.84247 Accuracy (Levenshtein): 069.27% Time taken: 018.16307 secs
+Iteration: 200 Loss: 0065.14843 Accuracy (Levenshtein): 068.63% Time taken: 017.31591 secs
+Iteration: 240 Loss: 0054.12083 Accuracy (Levenshtein): 074.10% Time taken: 020.14851 secs
+Iteration: 280 Loss: 0111.54043 Accuracy (Levenshtein): 068.97% Time taken: 022.65925 secs
+Iteration: 320 Loss: 0088.54337 Accuracy (Levenshtein): 068.52% Time taken: 028.09009 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0100.63330 Accuracy (Levenshtein): 064.18%
+Without teacher forcing: Accuracy (Levenshtein): 060.11%
+Time taken for this epoch: 6024.99240
+
+Epoch 25 / 24
+Iteration: 000 Loss: 0023.81771 Accuracy (Levenshtein): 080.27% Time taken: 005.80884 secs
+Iteration: 040 Loss: 0051.60167 Accuracy (Levenshtein): 069.77% Time taken: 013.00509 secs
+Iteration: 080 Loss: 0058.25484 Accuracy (Levenshtein): 072.11% Time taken: 012.46702 secs
+Iteration: 120 Loss: 0040.54164 Accuracy (Levenshtein): 073.66% Time taken: 011.98182 secs
+Iteration: 160 Loss: 0046.48535 Accuracy (Levenshtein): 073.16% Time taken: 018.60546 secs
+Iteration: 200 Loss: 0078.09144 Accuracy (Levenshtein): 072.47% Time taken: 019.78464 secs
+Iteration: 240 Loss: 0049.68230 Accuracy (Levenshtein): 073.14% Time taken: 019.39813 secs
+Iteration: 280 Loss: 0057.02669 Accuracy (Levenshtein): 074.34% Time taken: 019.67625 secs
+Iteration: 320 Loss: 0095.39567 Accuracy (Levenshtein): 073.29% Time taken: 026.42696 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0086.25248 Accuracy (Levenshtein): 065.02%
+Without teacher forcing: Accuracy (Levenshtein): 063.91%
+Time taken for this epoch: 6125.58858
+
+Epoch 26 / 25
+Iteration: 000 Loss: 0008.74463 Accuracy (Levenshtein): 083.72% Time taken: 005.44468 secs
+Iteration: 040 Loss: 0041.20999 Accuracy (Levenshtein): 075.74% Time taken: 012.38937 secs
+Iteration: 080 Loss: 0040.06316 Accuracy (Levenshtein): 076.48% Time taken: 012.18133 secs
+Iteration: 120 Loss: 0031.70193 Accuracy (Levenshtein): 077.47% Time taken: 012.58718 secs
+Iteration: 160 Loss: 0044.91416 Accuracy (Levenshtein): 076.14% Time taken: 018.77052 secs
+Iteration: 200 Loss: 0046.87314 Accuracy (Levenshtein): 078.83% Time taken: 019.48041 secs
+Iteration: 240 Loss: 0046.51487 Accuracy (Levenshtein): 079.52% Time taken: 018.67160 secs
+Iteration: 280 Loss: 0065.14350 Accuracy (Levenshtein): 076.67% Time taken: 020.40355 secs
+Iteration: 320 Loss: 0196.07478 Accuracy (Levenshtein): 074.01% Time taken: 029.92416 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0135.23421 Accuracy (Levenshtein): 050.15%
+Without teacher forcing: Accuracy (Levenshtein): 056.17%
+Time taken for this epoch: 6135.73926
+
+Epoch 27 / 25
+Iteration: 000 Loss: 0010.11318 Accuracy (Levenshtein): 083.01% Time taken: 005.65787 secs
+Iteration: 040 Loss: 0036.77908 Accuracy (Levenshtein): 077.40% Time taken: 012.69002 secs
+Iteration: 080 Loss: 0034.01899 Accuracy (Levenshtein): 076.64% Time taken: 012.61470 secs
+Iteration: 120 Loss: 0028.28217 Accuracy (Levenshtein): 081.22% Time taken: 011.94485 secs
+Iteration: 160 Loss: 0056.99319 Accuracy (Levenshtein): 073.06% Time taken: 018.96414 secs
+Iteration: 200 Loss: 0047.82418 Accuracy (Levenshtein): 076.66% Time taken: 018.84398 secs
+Iteration: 240 Loss: 0034.44336 Accuracy (Levenshtein): 080.86% Time taken: 017.95820 secs
+Iteration: 280 Loss: 0037.01905 Accuracy (Levenshtein): 080.41% Time taken: 018.60555 secs
+Iteration: 320 Loss: 0056.18014 Accuracy (Levenshtein): 075.28% Time taken: 025.97740 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0075.93536 Accuracy (Levenshtein): 069.04%
+Without teacher forcing: Accuracy (Levenshtein): 067.68%
+Time taken for this epoch: 6198.38865
+
+Epoch 28 / 27
+Iteration: 000 Loss: 0011.27479 Accuracy (Levenshtein): 088.65% Time taken: 006.19359 secs
+Iteration: 040 Loss: 0027.34113 Accuracy (Levenshtein): 077.79% Time taken: 011.93870 secs
+Iteration: 080 Loss: 0022.32450 Accuracy (Levenshtein): 083.08% Time taken: 012.48952 secs
+Iteration: 120 Loss: 0031.06632 Accuracy (Levenshtein): 080.91% Time taken: 012.09478 secs
+Iteration: 160 Loss: 0036.56010 Accuracy (Levenshtein): 078.30% Time taken: 019.66054 secs
+Iteration: 200 Loss: 0035.41763 Accuracy (Levenshtein): 080.94% Time taken: 020.36660 secs
+Iteration: 240 Loss: 0045.84003 Accuracy (Levenshtein): 081.42% Time taken: 020.78116 secs
+Iteration: 280 Loss: 0040.60719 Accuracy (Levenshtein): 080.74% Time taken: 018.93418 secs
+Iteration: 320 Loss: 0035.45184 Accuracy (Levenshtein): 081.95% Time taken: 023.62940 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0093.58115 Accuracy (Levenshtein): 064.70%
+Without teacher forcing: Accuracy (Levenshtein): 064.33%
+Time taken for this epoch: 6194.80152
+
+Epoch 29 / 27
+Iteration: 000 Loss: 0007.65929 Accuracy (Levenshtein): 086.42% Time taken: 005.88849 secs
+Iteration: 040 Loss: 0029.69651 Accuracy (Levenshtein): 080.35% Time taken: 013.06268 secs
+Iteration: 080 Loss: 0023.42616 Accuracy (Levenshtein): 084.63% Time taken: 012.86156 secs
+Iteration: 120 Loss: 0022.58064 Accuracy (Levenshtein): 080.70% Time taken: 011.57418 secs
+Iteration: 160 Loss: 0039.71217 Accuracy (Levenshtein): 080.65% Time taken: 017.92818 secs
+Iteration: 200 Loss: 0032.63949 Accuracy (Levenshtein): 081.41% Time taken: 018.42189 secs
+Iteration: 240 Loss: 0034.04290 Accuracy (Levenshtein): 082.87% Time taken: 019.59623 secs
+Iteration: 280 Loss: 0034.82743 Accuracy (Levenshtein): 083.20% Time taken: 019.83838 secs
+Iteration: 320 Loss: 0042.71519 Accuracy (Levenshtein): 079.97% Time taken: 025.35666 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0089.23429 Accuracy (Levenshtein): 064.48%
+Without teacher forcing: Accuracy (Levenshtein): 066.40%
+Time taken for this epoch: 6210.10540
+
+Epoch 30 / 27
+Iteration: 000 Loss: 0007.40821 Accuracy (Levenshtein): 088.02% Time taken: 005.87580 secs
+Iteration: 040 Loss: 0028.84170 Accuracy (Levenshtein): 084.33% Time taken: 012.58768 secs
+Iteration: 080 Loss: 0019.01355 Accuracy (Levenshtein): 085.36% Time taken: 012.16851 secs
+Iteration: 120 Loss: 0025.39268 Accuracy (Levenshtein): 083.23% Time taken: 012.63665 secs
+Iteration: 160 Loss: 0029.18427 Accuracy (Levenshtein): 084.33% Time taken: 019.63870 secs
+Iteration: 200 Loss: 0030.87161 Accuracy (Levenshtein): 082.26% Time taken: 018.77158 secs
+Iteration: 240 Loss: 0034.44829 Accuracy (Levenshtein): 083.46% Time taken: 019.29811 secs
+Iteration: 280 Loss: 0027.60639 Accuracy (Levenshtein): 085.16% Time taken: 018.06880 secs
+Iteration: 320 Loss: 0035.45158 Accuracy (Levenshtein): 082.83% Time taken: 024.33892 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0057.13713 Accuracy (Levenshtein): 077.74%
+Without teacher forcing: Accuracy (Levenshtein): 075.71%
+Time taken for this epoch: 6129.41465
+
+Epoch 31 / 30
+Iteration: 000 Loss: 0005.74076 Accuracy (Levenshtein): 088.04% Time taken: 005.72739 secs
+Iteration: 040 Loss: 0021.70173 Accuracy (Levenshtein): 084.84% Time taken: 012.43557 secs
+Iteration: 080 Loss: 0024.53732 Accuracy (Levenshtein): 084.93% Time taken: 012.33677 secs
+Iteration: 120 Loss: 0020.07698 Accuracy (Levenshtein): 087.87% Time taken: 012.56109 secs
+Iteration: 160 Loss: 0031.01988 Accuracy (Levenshtein): 083.68% Time taken: 018.24622 secs
+Iteration: 200 Loss: 0026.92597 Accuracy (Levenshtein): 085.48% Time taken: 018.95958 secs
+Iteration: 240 Loss: 0024.87767 Accuracy (Levenshtein): 084.68% Time taken: 018.94177 secs
+Iteration: 280 Loss: 0033.21827 Accuracy (Levenshtein): 082.71% Time taken: 018.48355 secs
+Iteration: 320 Loss: 0039.60752 Accuracy (Levenshtein): 083.49% Time taken: 026.27646 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0132.92451 Accuracy (Levenshtein): 050.66%
+Without teacher forcing: Accuracy (Levenshtein): 061.24%
+Time taken for this epoch: 6128.58026
+
+Epoch 32 / 30
+Iteration: 000 Loss: 0005.48457 Accuracy (Levenshtein): 089.71% Time taken: 005.98881 secs
+Iteration: 040 Loss: 0020.30689 Accuracy (Levenshtein): 085.00% Time taken: 012.15419 secs
+Iteration: 080 Loss: 0015.55890 Accuracy (Levenshtein): 088.32% Time taken: 012.61439 secs
+Iteration: 120 Loss: 0019.93377 Accuracy (Levenshtein): 086.46% Time taken: 012.08411 secs
+Iteration: 160 Loss: 0028.42143 Accuracy (Levenshtein): 084.72% Time taken: 018.64346 secs
+Iteration: 200 Loss: 0020.96031 Accuracy (Levenshtein): 089.04% Time taken: 019.08477 secs
+Iteration: 240 Loss: 0023.67801 Accuracy (Levenshtein): 087.30% Time taken: 018.12487 secs
+Iteration: 280 Loss: 0016.46627 Accuracy (Levenshtein): 089.24% Time taken: 018.21719 secs
+Iteration: 320 Loss: 0033.56631 Accuracy (Levenshtein): 085.09% Time taken: 027.20669 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0073.00588 Accuracy (Levenshtein): 072.83%
+Without teacher forcing: Accuracy (Levenshtein): 075.82%
+Time taken for this epoch: 6106.87049
+
+Epoch 33 / 30
+Iteration: 000 Loss: 0003.95241 Accuracy (Levenshtein): 091.32% Time taken: 005.87504 secs
+Iteration: 040 Loss: 0014.64312 Accuracy (Levenshtein): 087.07% Time taken: 011.71409 secs
+Iteration: 080 Loss: 0024.24908 Accuracy (Levenshtein): 088.35% Time taken: 013.72709 secs
+Iteration: 120 Loss: 0015.18869 Accuracy (Levenshtein): 089.99% Time taken: 011.43675 secs
+Iteration: 160 Loss: 0027.68742 Accuracy (Levenshtein): 084.90% Time taken: 019.34089 secs
+Iteration: 200 Loss: 0022.97529 Accuracy (Levenshtein): 088.82% Time taken: 017.79282 secs
+Iteration: 240 Loss: 0020.65170 Accuracy (Levenshtein): 087.82% Time taken: 018.38834 secs
+Iteration: 280 Loss: 0021.43011 Accuracy (Levenshtein): 088.29% Time taken: 019.17750 secs
+Iteration: 320 Loss: 0025.47157 Accuracy (Levenshtein): 085.90% Time taken: 024.82012 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0055.15204 Accuracy (Levenshtein): 079.46%
+Without teacher forcing: Accuracy (Levenshtein): 079.78%
+Time taken for this epoch: 6032.36840
+
+Epoch 34 / 33
+Iteration: 000 Loss: 0002.86491 Accuracy (Levenshtein): 093.96% Time taken: 005.59977 secs
+Iteration: 040 Loss: 0014.97794 Accuracy (Levenshtein): 091.05% Time taken: 012.83134 secs
+Iteration: 080 Loss: 0013.48357 Accuracy (Levenshtein): 089.60% Time taken: 012.21558 secs
+Iteration: 120 Loss: 0013.74975 Accuracy (Levenshtein): 089.89% Time taken: 013.05168 secs
+Iteration: 160 Loss: 0036.92060 Accuracy (Levenshtein): 086.15% Time taken: 019.78075 secs
+Iteration: 200 Loss: 0034.91066 Accuracy (Levenshtein): 087.20% Time taken: 018.26903 secs
+Iteration: 240 Loss: 0017.93212 Accuracy (Levenshtein): 089.39% Time taken: 017.64710 secs
+Iteration: 280 Loss: 0029.92609 Accuracy (Levenshtein): 088.31% Time taken: 021.22112 secs
+Iteration: 320 Loss: 0044.62614 Accuracy (Levenshtein): 084.96% Time taken: 026.65981 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0069.86838 Accuracy (Levenshtein): 074.06%
+Without teacher forcing: Accuracy (Levenshtein): 075.85%
+Time taken for this epoch: 6097.22705
+
+Epoch 35 / 33
+Iteration: 000 Loss: 0003.45671 Accuracy (Levenshtein): 095.72% Time taken: 005.49794 secs
+Iteration: 040 Loss: 0012.39228 Accuracy (Levenshtein): 089.69% Time taken: 011.82325 secs
+Iteration: 080 Loss: 0014.20234 Accuracy (Levenshtein): 088.21% Time taken: 012.41893 secs
+Iteration: 120 Loss: 0011.40225 Accuracy (Levenshtein): 091.43% Time taken: 011.38796 secs
+Iteration: 160 Loss: 0014.72815 Accuracy (Levenshtein): 091.70% Time taken: 017.82909 secs
+Iteration: 200 Loss: 0027.70216 Accuracy (Levenshtein): 087.59% Time taken: 018.73510 secs
+Iteration: 240 Loss: 0017.92438 Accuracy (Levenshtein): 090.40% Time taken: 021.87733 secs
+Iteration: 280 Loss: 0022.81426 Accuracy (Levenshtein): 091.13% Time taken: 017.73923 secs
+Iteration: 320 Loss: 0037.20782 Accuracy (Levenshtein): 087.18% Time taken: 024.99557 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0062.52437 Accuracy (Levenshtein): 078.41%
+Without teacher forcing: Accuracy (Levenshtein): 079.95%
+Time taken for this epoch: 6010.05629
+
+Epoch 36 / 33
+Iteration: 000 Loss: 0002.45543 Accuracy (Levenshtein): 094.68% Time taken: 006.17312 secs
+Iteration: 040 Loss: 0011.98383 Accuracy (Levenshtein): 089.44% Time taken: 012.05166 secs
+Iteration: 080 Loss: 0011.87682 Accuracy (Levenshtein): 093.28% Time taken: 011.89710 secs
+Iteration: 120 Loss: 0008.46302 Accuracy (Levenshtein): 092.12% Time taken: 011.35338 secs
+Iteration: 160 Loss: 0021.72396 Accuracy (Levenshtein): 088.21% Time taken: 018.65332 secs
+Iteration: 200 Loss: 0012.93058 Accuracy (Levenshtein): 092.08% Time taken: 018.10500 secs
+Iteration: 240 Loss: 0019.90598 Accuracy (Levenshtein): 089.59% Time taken: 019.54740 secs
+Iteration: 280 Loss: 0019.78246 Accuracy (Levenshtein): 089.73% Time taken: 017.42395 secs
+Iteration: 320 Loss: 0039.22445 Accuracy (Levenshtein): 084.20% Time taken: 026.22179 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0051.16640 Accuracy (Levenshtein): 082.00%
+Without teacher forcing: Accuracy (Levenshtein): 081.83%
+Time taken for this epoch: 5997.62491
+
+Epoch 37 / 36
+Iteration: 000 Loss: 0003.09660 Accuracy (Levenshtein): 095.75% Time taken: 005.99818 secs
+Iteration: 040 Loss: 0010.69691 Accuracy (Levenshtein): 091.46% Time taken: 012.18122 secs
+Iteration: 080 Loss: 0013.42485 Accuracy (Levenshtein): 091.66% Time taken: 012.19900 secs
+Iteration: 120 Loss: 0011.18742 Accuracy (Levenshtein): 091.64% Time taken: 011.59135 secs
+Iteration: 160 Loss: 0018.42827 Accuracy (Levenshtein): 092.55% Time taken: 022.79149 secs
+Iteration: 200 Loss: 0025.45935 Accuracy (Levenshtein): 088.42% Time taken: 017.41615 secs
+Iteration: 240 Loss: 0012.60451 Accuracy (Levenshtein): 092.48% Time taken: 017.37586 secs
+Iteration: 280 Loss: 0030.01377 Accuracy (Levenshtein): 091.82% Time taken: 020.77234 secs
+Iteration: 320 Loss: 0033.22548 Accuracy (Levenshtein): 088.87% Time taken: 026.10751 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0065.78525 Accuracy (Levenshtein): 075.88%
+Without teacher forcing: Accuracy (Levenshtein): 078.99%
+Time taken for this epoch: 5990.07964
+
+Epoch 38 / 36
+Iteration: 000 Loss: 0003.78864 Accuracy (Levenshtein): 096.03% Time taken: 005.69201 secs
+Iteration: 040 Loss: 0012.78329 Accuracy (Levenshtein): 091.39% Time taken: 013.02278 secs
+Iteration: 080 Loss: 0008.63584 Accuracy (Levenshtein): 092.97% Time taken: 011.16070 secs
+Iteration: 120 Loss: 0010.77662 Accuracy (Levenshtein): 092.97% Time taken: 012.06185 secs
+Iteration: 160 Loss: 0019.05130 Accuracy (Levenshtein): 089.78% Time taken: 019.02915 secs
+Iteration: 200 Loss: 0019.73308 Accuracy (Levenshtein): 091.10% Time taken: 020.17217 secs
+Iteration: 240 Loss: 0012.66681 Accuracy (Levenshtein): 092.51% Time taken: 018.52119 secs
+Iteration: 280 Loss: 0011.08401 Accuracy (Levenshtein): 093.33% Time taken: 017.77884 secs
+Iteration: 320 Loss: 0028.74109 Accuracy (Levenshtein): 089.38% Time taken: 028.81190 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0080.82252 Accuracy (Levenshtein): 072.59%
+Without teacher forcing: Accuracy (Levenshtein): 076.84%
+Time taken for this epoch: 6027.72838
+
+Epoch 39 / 36
+Iteration: 000 Loss: 0001.22856 Accuracy (Levenshtein): 098.14% Time taken: 005.88462 secs
+Iteration: 040 Loss: 0009.14817 Accuracy (Levenshtein): 092.80% Time taken: 011.96477 secs
+Iteration: 080 Loss: 0009.15062 Accuracy (Levenshtein): 093.47% Time taken: 012.37177 secs
+Iteration: 120 Loss: 0011.29705 Accuracy (Levenshtein): 090.70% Time taken: 011.65210 secs
+Iteration: 160 Loss: 0013.74287 Accuracy (Levenshtein): 092.24% Time taken: 017.66413 secs
+Iteration: 200 Loss: 0018.04820 Accuracy (Levenshtein): 090.43% Time taken: 018.41527 secs
+Iteration: 240 Loss: 0016.47483 Accuracy (Levenshtein): 093.32% Time taken: 018.81071 secs
+Iteration: 280 Loss: 0025.40811 Accuracy (Levenshtein): 090.57% Time taken: 018.70767 secs
+Iteration: 320 Loss: 0022.60138 Accuracy (Levenshtein): 088.33% Time taken: 026.71904 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0076.07151 Accuracy (Levenshtein): 073.38%
+Without teacher forcing: Accuracy (Levenshtein): 078.37%
+Time taken for this epoch: 5996.18268
+
+Epoch 40 / 36
+Iteration: 000 Loss: 0004.40156 Accuracy (Levenshtein): 097.01% Time taken: 006.10401 secs
+Iteration: 040 Loss: 0015.48591 Accuracy (Levenshtein): 091.28% Time taken: 012.80716 secs
+Iteration: 080 Loss: 0009.23836 Accuracy (Levenshtein): 092.56% Time taken: 014.47007 secs
+Iteration: 120 Loss: 0008.64703 Accuracy (Levenshtein): 094.20% Time taken: 012.37312 secs
+Iteration: 160 Loss: 0011.46444 Accuracy (Levenshtein): 094.22% Time taken: 020.61919 secs
+Iteration: 200 Loss: 0017.42933 Accuracy (Levenshtein): 092.70% Time taken: 018.18484 secs
+Iteration: 240 Loss: 0015.38140 Accuracy (Levenshtein): 092.71% Time taken: 018.52522 secs
+Iteration: 280 Loss: 0009.82801 Accuracy (Levenshtein): 094.27% Time taken: 018.35428 secs
+Iteration: 320 Loss: 0018.33547 Accuracy (Levenshtein): 090.64% Time taken: 027.07402 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0055.42308 Accuracy (Levenshtein): 080.72%
+Without teacher forcing: Accuracy (Levenshtein): 082.27%
+Time taken for this epoch: 6009.34649
+
+Epoch 41 / 36
+Iteration: 000 Loss: 0002.51636 Accuracy (Levenshtein): 097.59% Time taken: 005.76706 secs
+Iteration: 040 Loss: 0008.40778 Accuracy (Levenshtein): 094.15% Time taken: 011.99711 secs
+Iteration: 080 Loss: 0008.42416 Accuracy (Levenshtein): 094.61% Time taken: 013.30219 secs
+Iteration: 120 Loss: 0008.56634 Accuracy (Levenshtein): 094.27% Time taken: 012.69239 secs
+Iteration: 160 Loss: 0014.06182 Accuracy (Levenshtein): 093.07% Time taken: 021.37098 secs
+Iteration: 200 Loss: 0014.63044 Accuracy (Levenshtein): 091.76% Time taken: 018.16407 secs
+Iteration: 240 Loss: 0016.16203 Accuracy (Levenshtein): 090.95% Time taken: 018.52094 secs
+Iteration: 280 Loss: 0011.48861 Accuracy (Levenshtein): 093.36% Time taken: 018.77332 secs
+Iteration: 320 Loss: 0018.45345 Accuracy (Levenshtein): 090.18% Time taken: 025.83381 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0060.29856 Accuracy (Levenshtein): 079.98%
+Without teacher forcing: Accuracy (Levenshtein): 082.33%
+Time taken for this epoch: 6047.48015
+
+Epoch 42 / 36
+Iteration: 000 Loss: 0002.17184 Accuracy (Levenshtein): 097.03% Time taken: 005.94353 secs
+Iteration: 040 Loss: 0009.70209 Accuracy (Levenshtein): 093.03% Time taken: 012.08773 secs
+Iteration: 080 Loss: 0010.34974 Accuracy (Levenshtein): 094.84% Time taken: 011.79509 secs
+Iteration: 120 Loss: 0007.23504 Accuracy (Levenshtein): 094.70% Time taken: 012.19702 secs
+Iteration: 160 Loss: 0010.89883 Accuracy (Levenshtein): 093.64% Time taken: 019.97717 secs
+Iteration: 200 Loss: 0008.82347 Accuracy (Levenshtein): 094.81% Time taken: 017.64305 secs
+Iteration: 240 Loss: 0012.32568 Accuracy (Levenshtein): 092.13% Time taken: 018.29604 secs
+Iteration: 280 Loss: 0019.20317 Accuracy (Levenshtein): 094.78% Time taken: 021.73399 secs
+Iteration: 320 Loss: 0016.93898 Accuracy (Levenshtein): 092.10% Time taken: 026.64872 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0075.54392 Accuracy (Levenshtein): 075.33%
+Without teacher forcing: Accuracy (Levenshtein): 079.00%
+Time taken for this epoch: 6078.35235
+
+Epoch 43 / 36
+Iteration: 000 Loss: 0000.70740 Accuracy (Levenshtein): 099.43% Time taken: 005.80875 secs
+Iteration: 040 Loss: 0007.53279 Accuracy (Levenshtein): 093.66% Time taken: 012.21080 secs
+Iteration: 080 Loss: 0007.05386 Accuracy (Levenshtein): 094.59% Time taken: 012.32319 secs
+Iteration: 120 Loss: 0010.20463 Accuracy (Levenshtein): 094.04% Time taken: 014.04998 secs
+Iteration: 160 Loss: 0015.36298 Accuracy (Levenshtein): 090.52% Time taken: 018.27963 secs
+Iteration: 200 Loss: 0009.30975 Accuracy (Levenshtein): 095.71% Time taken: 023.17607 secs
+Iteration: 240 Loss: 0008.79974 Accuracy (Levenshtein): 094.10% Time taken: 018.46893 secs
+Iteration: 280 Loss: 0017.14083 Accuracy (Levenshtein): 093.63% Time taken: 019.13740 secs
+Iteration: 320 Loss: 0018.55221 Accuracy (Levenshtein): 092.25% Time taken: 027.04898 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0042.58329 Accuracy (Levenshtein): 086.28%
+Without teacher forcing: Accuracy (Levenshtein): 086.99%
+Time taken for this epoch: 6105.01784
+
+Epoch 44 / 43
+Iteration: 000 Loss: 0002.21640 Accuracy (Levenshtein): 097.40% Time taken: 006.02951 secs
+Iteration: 040 Loss: 0010.07168 Accuracy (Levenshtein): 094.56% Time taken: 014.32641 secs
+Iteration: 080 Loss: 0015.95419 Accuracy (Levenshtein): 092.83% Time taken: 013.73136 secs
+Iteration: 120 Loss: 0003.56376 Accuracy (Levenshtein): 097.59% Time taken: 013.52813 secs
+Iteration: 160 Loss: 0015.63872 Accuracy (Levenshtein): 091.97% Time taken: 017.83041 secs
+Iteration: 200 Loss: 0010.38383 Accuracy (Levenshtein): 093.71% Time taken: 017.77491 secs
+Iteration: 240 Loss: 0008.25784 Accuracy (Levenshtein): 095.93% Time taken: 018.65644 secs
+Iteration: 280 Loss: 0008.10692 Accuracy (Levenshtein): 094.95% Time taken: 019.25374 secs
+Iteration: 320 Loss: 0012.40667 Accuracy (Levenshtein): 092.51% Time taken: 024.85590 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0066.75902 Accuracy (Levenshtein): 079.19%
+Without teacher forcing: Accuracy (Levenshtein): 082.92%
+Time taken for this epoch: 6049.27353
+
+Epoch 45 / 43
+Iteration: 000 Loss: 0001.17271 Accuracy (Levenshtein): 097.97% Time taken: 005.73700 secs
+Iteration: 040 Loss: 0005.20313 Accuracy (Levenshtein): 095.86% Time taken: 012.82162 secs
+Iteration: 080 Loss: 0007.75582 Accuracy (Levenshtein): 094.51% Time taken: 012.60550 secs
+Iteration: 120 Loss: 0003.54202 Accuracy (Levenshtein): 096.44% Time taken: 012.51420 secs
+Iteration: 160 Loss: 0009.10203 Accuracy (Levenshtein): 094.45% Time taken: 018.12810 secs
+Iteration: 200 Loss: 0011.08015 Accuracy (Levenshtein): 094.42% Time taken: 017.93213 secs
+Iteration: 240 Loss: 0007.60261 Accuracy (Levenshtein): 095.00% Time taken: 019.10976 secs
+Iteration: 280 Loss: 0008.62120 Accuracy (Levenshtein): 095.08% Time taken: 018.73042 secs
+Iteration: 320 Loss: 0013.01263 Accuracy (Levenshtein): 092.98% Time taken: 026.26301 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0054.89778 Accuracy (Levenshtein): 083.08%
+Without teacher forcing: Accuracy (Levenshtein): 084.55%
+Time taken for this epoch: 6078.33038
+
+Epoch 46 / 43
+Iteration: 000 Loss: 0003.01629 Accuracy (Levenshtein): 098.83% Time taken: 005.90754 secs
+Iteration: 040 Loss: 0005.28785 Accuracy (Levenshtein): 096.05% Time taken: 012.39152 secs
+Iteration: 080 Loss: 0007.52017 Accuracy (Levenshtein): 095.09% Time taken: 012.31750 secs
+Iteration: 120 Loss: 0006.16648 Accuracy (Levenshtein): 095.34% Time taken: 012.25809 secs
+Iteration: 160 Loss: 0013.45714 Accuracy (Levenshtein): 092.36% Time taken: 020.02030 secs
+Iteration: 200 Loss: 0005.75623 Accuracy (Levenshtein): 096.48% Time taken: 018.88560 secs
+Iteration: 240 Loss: 0015.81109 Accuracy (Levenshtein): 092.04% Time taken: 020.44203 secs
+Iteration: 280 Loss: 0008.37341 Accuracy (Levenshtein): 095.09% Time taken: 019.16887 secs
+Iteration: 320 Loss: 0012.76134 Accuracy (Levenshtein): 093.39% Time taken: 024.77808 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0054.74512 Accuracy (Levenshtein): 083.39%
+Without teacher forcing: Accuracy (Levenshtein): 085.11%
+Time taken for this epoch: 6030.33623
+
+Epoch 47 / 43
+Iteration: 000 Loss: 0000.52992 Accuracy (Levenshtein): 100.00% Time taken: 005.98813 secs
+Iteration: 040 Loss: 0003.87465 Accuracy (Levenshtein): 097.48% Time taken: 012.47323 secs
+Iteration: 080 Loss: 0004.40454 Accuracy (Levenshtein): 096.10% Time taken: 011.81455 secs
+Iteration: 120 Loss: 0004.20755 Accuracy (Levenshtein): 096.19% Time taken: 012.96162 secs
+Iteration: 160 Loss: 0007.29522 Accuracy (Levenshtein): 096.04% Time taken: 018.96277 secs
+Iteration: 200 Loss: 0007.67634 Accuracy (Levenshtein): 095.32% Time taken: 017.83323 secs
+Iteration: 240 Loss: 0006.50871 Accuracy (Levenshtein): 096.69% Time taken: 019.17788 secs
+Iteration: 280 Loss: 0006.50360 Accuracy (Levenshtein): 095.77% Time taken: 018.63403 secs
+Iteration: 320 Loss: 0012.44343 Accuracy (Levenshtein): 093.90% Time taken: 025.26874 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0056.31726 Accuracy (Levenshtein): 082.57%
+Without teacher forcing: Accuracy (Levenshtein): 084.05%
+Time taken for this epoch: 6013.02953
+
+Epoch 48 / 43
+Iteration: 000 Loss: 0000.30461 Accuracy (Levenshtein): 100.00% Time taken: 005.57254 secs
+Iteration: 040 Loss: 0006.78217 Accuracy (Levenshtein): 095.47% Time taken: 012.11812 secs
+Iteration: 080 Loss: 0003.38651 Accuracy (Levenshtein): 097.58% Time taken: 011.66688 secs
+Iteration: 120 Loss: 0006.52246 Accuracy (Levenshtein): 094.99% Time taken: 012.46165 secs
+Iteration: 160 Loss: 0005.84475 Accuracy (Levenshtein): 096.26% Time taken: 018.08046 secs
+Iteration: 200 Loss: 0007.35594 Accuracy (Levenshtein): 095.12% Time taken: 018.44679 secs
+Iteration: 240 Loss: 0007.84943 Accuracy (Levenshtein): 095.25% Time taken: 018.05342 secs
+Iteration: 280 Loss: 0008.22363 Accuracy (Levenshtein): 095.29% Time taken: 021.73247 secs
+Iteration: 320 Loss: 0032.35474 Accuracy (Levenshtein): 089.08% Time taken: 025.24700 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0043.34280 Accuracy (Levenshtein): 087.13%
+Without teacher forcing: Accuracy (Levenshtein): 088.29%
+Time taken for this epoch: 5902.75634
+
+Epoch 49 / 43
+Iteration: 000 Loss: 0000.22099 Accuracy (Levenshtein): 100.00% Time taken: 005.63790 secs
+Iteration: 040 Loss: 0007.00088 Accuracy (Levenshtein): 094.85% Time taken: 011.44720 secs
+Iteration: 080 Loss: 0003.27640 Accuracy (Levenshtein): 097.02% Time taken: 011.86448 secs
+Iteration: 120 Loss: 0004.44691 Accuracy (Levenshtein): 097.89% Time taken: 011.97756 secs
+Iteration: 160 Loss: 0006.99895 Accuracy (Levenshtein): 096.11% Time taken: 018.87558 secs
+Iteration: 200 Loss: 0013.31475 Accuracy (Levenshtein): 095.30% Time taken: 019.14983 secs
+Iteration: 240 Loss: 0011.62756 Accuracy (Levenshtein): 094.15% Time taken: 018.15171 secs
+Iteration: 280 Loss: 0004.65870 Accuracy (Levenshtein): 096.86% Time taken: 018.10653 secs
+Iteration: 320 Loss: 0008.66965 Accuracy (Levenshtein): 095.62% Time taken: 024.65847 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0063.12290 Accuracy (Levenshtein): 080.72%
+Without teacher forcing: Accuracy (Levenshtein): 083.85%
+Time taken for this epoch: 5921.37913
+
+Epoch 50 / 43
+Iteration: 000 Loss: 0000.79700 Accuracy (Levenshtein): 097.80% Time taken: 005.69050 secs
+Iteration: 040 Loss: 0003.76403 Accuracy (Levenshtein): 097.95% Time taken: 011.88238 secs
+Iteration: 080 Loss: 0008.51911 Accuracy (Levenshtein): 095.63% Time taken: 011.92192 secs
+Iteration: 120 Loss: 0003.51056 Accuracy (Levenshtein): 097.95% Time taken: 012.07635 secs
+Iteration: 160 Loss: 0004.89670 Accuracy (Levenshtein): 097.61% Time taken: 018.24288 secs
+Iteration: 200 Loss: 0014.65994 Accuracy (Levenshtein): 096.11% Time taken: 018.49234 secs
+Iteration: 240 Loss: 0008.56061 Accuracy (Levenshtein): 096.45% Time taken: 017.67270 secs
+Iteration: 280 Loss: 0004.44879 Accuracy (Levenshtein): 096.78% Time taken: 016.34993 secs
+Iteration: 320 Loss: 0015.87348 Accuracy (Levenshtein): 093.99% Time taken: 027.57698 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0066.35576 Accuracy (Levenshtein): 079.93%
+Without teacher forcing: Accuracy (Levenshtein): 084.05%
+Time taken for this epoch: 5829.80890
+
+Epoch 51 / 43
+Iteration: 000 Loss: 0000.58402 Accuracy (Levenshtein): 098.52% Time taken: 006.09782 secs
+Iteration: 040 Loss: 0005.79748 Accuracy (Levenshtein): 095.07% Time taken: 011.54550 secs
+Iteration: 080 Loss: 0003.08392 Accuracy (Levenshtein): 097.79% Time taken: 012.22826 secs
+Iteration: 120 Loss: 0003.44821 Accuracy (Levenshtein): 096.85% Time taken: 011.64855 secs
+Iteration: 160 Loss: 0007.76000 Accuracy (Levenshtein): 094.96% Time taken: 017.31992 secs
+Iteration: 200 Loss: 0007.38241 Accuracy (Levenshtein): 095.78% Time taken: 017.83681 secs
+Iteration: 240 Loss: 0005.77015 Accuracy (Levenshtein): 097.02% Time taken: 020.42614 secs
+Iteration: 280 Loss: 0004.57666 Accuracy (Levenshtein): 097.04% Time taken: 017.72153 secs
+Iteration: 320 Loss: 0017.46486 Accuracy (Levenshtein): 092.06% Time taken: 025.95689 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0053.73669 Accuracy (Levenshtein): 085.72%
+Without teacher forcing: Accuracy (Levenshtein): 086.95%
+Time taken for this epoch: 5825.57707
+
+Epoch 52 / 43
+Iteration: 000 Loss: 0000.23581 Accuracy (Levenshtein): 099.72% Time taken: 005.44188 secs
+Iteration: 040 Loss: 0004.12092 Accuracy (Levenshtein): 097.23% Time taken: 011.90393 secs
+Iteration: 080 Loss: 0008.57627 Accuracy (Levenshtein): 095.93% Time taken: 012.04998 secs
+Iteration: 120 Loss: 0004.46194 Accuracy (Levenshtein): 097.20% Time taken: 011.98698 secs
+Iteration: 160 Loss: 0010.57535 Accuracy (Levenshtein): 096.40% Time taken: 020.28975 secs
+Iteration: 200 Loss: 0005.78751 Accuracy (Levenshtein): 095.90% Time taken: 018.75499 secs
+Iteration: 240 Loss: 0019.48396 Accuracy (Levenshtein): 096.33% Time taken: 019.78057 secs
+Iteration: 280 Loss: 0008.90670 Accuracy (Levenshtein): 093.92% Time taken: 017.65125 secs
+Iteration: 320 Loss: 0050.93364 Accuracy (Levenshtein): 091.91% Time taken: 025.50968 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0054.92632 Accuracy (Levenshtein): 085.91%
+Without teacher forcing: Accuracy (Levenshtein): 087.53%
+Time taken for this epoch: 5883.72447
+
+Epoch 53 / 43
+Iteration: 000 Loss: 0000.25530 Accuracy (Levenshtein): 099.48% Time taken: 005.88441 secs
+Iteration: 040 Loss: 0002.26579 Accuracy (Levenshtein): 098.41% Time taken: 011.50126 secs
+Iteration: 080 Loss: 0002.34847 Accuracy (Levenshtein): 098.78% Time taken: 011.47463 secs
+Iteration: 120 Loss: 0002.76067 Accuracy (Levenshtein): 097.56% Time taken: 010.72482 secs
+Iteration: 160 Loss: 0005.24622 Accuracy (Levenshtein): 097.46% Time taken: 019.16125 secs
+Iteration: 200 Loss: 0008.63043 Accuracy (Levenshtein): 096.44% Time taken: 018.10821 secs
+Iteration: 240 Loss: 0004.33674 Accuracy (Levenshtein): 097.48% Time taken: 018.05972 secs
+Iteration: 280 Loss: 0013.54309 Accuracy (Levenshtein): 094.86% Time taken: 018.37077 secs
+Iteration: 320 Loss: 0013.49240 Accuracy (Levenshtein): 092.82% Time taken: 025.55708 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0057.80080 Accuracy (Levenshtein): 083.31%
+Without teacher forcing: Accuracy (Levenshtein): 085.98%
+Time taken for this epoch: 5856.15645
+
+Epoch 54 / 43
+Iteration: 000 Loss: 0001.40869 Accuracy (Levenshtein): 099.22% Time taken: 005.75590 secs
+Iteration: 040 Loss: 0002.91038 Accuracy (Levenshtein): 098.06% Time taken: 011.79694 secs
+Iteration: 080 Loss: 0002.88385 Accuracy (Levenshtein): 098.11% Time taken: 012.31094 secs
+Iteration: 120 Loss: 0005.07033 Accuracy (Levenshtein): 097.09% Time taken: 012.31307 secs
+Iteration: 160 Loss: 0005.65866 Accuracy (Levenshtein): 097.69% Time taken: 018.06373 secs
+Iteration: 200 Loss: 0008.65229 Accuracy (Levenshtein): 097.01% Time taken: 018.80859 secs
+Iteration: 240 Loss: 0004.51592 Accuracy (Levenshtein): 097.85% Time taken: 019.91168 secs
+Iteration: 280 Loss: 0002.96209 Accuracy (Levenshtein): 098.06% Time taken: 018.98849 secs
+Iteration: 320 Loss: 0011.34718 Accuracy (Levenshtein): 095.04% Time taken: 026.00612 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0056.19736 Accuracy (Levenshtein): 083.75%
+Without teacher forcing: Accuracy (Levenshtein): 085.97%
+Time taken for this epoch: 5859.65230
+
+Epoch 55 / 43
+Iteration: 000 Loss: 0000.41376 Accuracy (Levenshtein): 099.74% Time taken: 005.38924 secs
+Iteration: 040 Loss: 0001.73455 Accuracy (Levenshtein): 098.39% Time taken: 011.74160 secs
+Iteration: 080 Loss: 0004.25004 Accuracy (Levenshtein): 097.37% Time taken: 011.94659 secs
+Iteration: 120 Loss: 0001.48876 Accuracy (Levenshtein): 098.89% Time taken: 013.61400 secs
+Iteration: 160 Loss: 0004.03797 Accuracy (Levenshtein): 097.21% Time taken: 017.17386 secs
+Iteration: 200 Loss: 0004.79442 Accuracy (Levenshtein): 097.79% Time taken: 018.06498 secs
+Iteration: 240 Loss: 0009.06425 Accuracy (Levenshtein): 096.36% Time taken: 019.25495 secs
+Iteration: 280 Loss: 0005.79339 Accuracy (Levenshtein): 097.29% Time taken: 018.96494 secs
+Iteration: 320 Loss: 0021.22390 Accuracy (Levenshtein): 091.74% Time taken: 027.13276 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0054.07341 Accuracy (Levenshtein): 084.56%
+Without teacher forcing: Accuracy (Levenshtein): 086.70%
+Time taken for this epoch: 5830.70361
+
+Epoch 56 / 43
+Iteration: 000 Loss: 0002.26340 Accuracy (Levenshtein): 098.84% Time taken: 005.60728 secs
+Iteration: 040 Loss: 0002.69089 Accuracy (Levenshtein): 098.54% Time taken: 012.39349 secs
+Iteration: 080 Loss: 0003.56024 Accuracy (Levenshtein): 097.39% Time taken: 012.80553 secs
+Iteration: 120 Loss: 0003.99371 Accuracy (Levenshtein): 097.53% Time taken: 011.53942 secs
+Iteration: 160 Loss: 0004.51199 Accuracy (Levenshtein): 097.16% Time taken: 017.86152 secs
+Iteration: 200 Loss: 0003.08763 Accuracy (Levenshtein): 098.33% Time taken: 020.29801 secs
+Iteration: 240 Loss: 0004.36482 Accuracy (Levenshtein): 097.92% Time taken: 018.89919 secs
+Iteration: 280 Loss: 0004.51291 Accuracy (Levenshtein): 098.06% Time taken: 016.88250 secs
+Iteration: 320 Loss: 0010.37733 Accuracy (Levenshtein): 094.32% Time taken: 023.35851 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0059.57858 Accuracy (Levenshtein): 083.51%
+Without teacher forcing: Accuracy (Levenshtein): 085.71%
+Time taken for this epoch: 5852.43379
+
+Epoch 57 / 43
+Iteration: 000 Loss: 0000.37154 Accuracy (Levenshtein): 099.30% Time taken: 005.96381 secs
+Iteration: 040 Loss: 0001.65219 Accuracy (Levenshtein): 099.01% Time taken: 012.18482 secs
+Iteration: 080 Loss: 0002.90397 Accuracy (Levenshtein): 097.91% Time taken: 011.40543 secs
+Iteration: 120 Loss: 0000.91840 Accuracy (Levenshtein): 099.32% Time taken: 012.16278 secs
+Iteration: 160 Loss: 0004.24479 Accuracy (Levenshtein): 096.70% Time taken: 019.59836 secs
+Iteration: 200 Loss: 0003.94684 Accuracy (Levenshtein): 097.36% Time taken: 020.09100 secs
+Iteration: 240 Loss: 0008.71686 Accuracy (Levenshtein): 096.37% Time taken: 019.46623 secs
+Iteration: 280 Loss: 0008.83911 Accuracy (Levenshtein): 096.19% Time taken: 020.05610 secs
+Iteration: 320 Loss: 0011.04400 Accuracy (Levenshtein): 094.42% Time taken: 025.74071 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0042.21301 Accuracy (Levenshtein): 088.66%
+Without teacher forcing: Accuracy (Levenshtein): 089.40%
+Time taken for this epoch: 5929.59493
+
+Epoch 58 / 57
+Iteration: 000 Loss: 0000.35006 Accuracy (Levenshtein): 099.48% Time taken: 005.79859 secs
+Iteration: 040 Loss: 0001.60514 Accuracy (Levenshtein): 098.62% Time taken: 011.29166 secs
+Iteration: 080 Loss: 0001.88966 Accuracy (Levenshtein): 099.05% Time taken: 011.85904 secs
+Iteration: 120 Loss: 0002.19111 Accuracy (Levenshtein): 098.57% Time taken: 013.54999 secs
+Iteration: 160 Loss: 0004.24471 Accuracy (Levenshtein): 097.60% Time taken: 018.58624 secs
+Iteration: 200 Loss: 0010.95230 Accuracy (Levenshtein): 096.58% Time taken: 017.79434 secs
+Iteration: 240 Loss: 0003.94927 Accuracy (Levenshtein): 097.67% Time taken: 019.61699 secs
+Iteration: 280 Loss: 0002.57860 Accuracy (Levenshtein): 098.00% Time taken: 020.75369 secs
+Iteration: 320 Loss: 0005.06669 Accuracy (Levenshtein): 096.63% Time taken: 022.71260 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0043.68878 Accuracy (Levenshtein): 088.49%
+Without teacher forcing: Accuracy (Levenshtein): 089.32%
+Time taken for this epoch: 5879.40051
+
+Epoch 59 / 57
+Iteration: 000 Loss: 0000.23197 Accuracy (Levenshtein): 098.59% Time taken: 005.49510 secs
+Iteration: 040 Loss: 0002.25438 Accuracy (Levenshtein): 099.32% Time taken: 011.02889 secs
+Iteration: 080 Loss: 0004.93497 Accuracy (Levenshtein): 096.37% Time taken: 012.73842 secs
+Iteration: 120 Loss: 0003.08159 Accuracy (Levenshtein): 098.07% Time taken: 012.20136 secs
+Iteration: 160 Loss: 0011.43597 Accuracy (Levenshtein): 095.41% Time taken: 017.75988 secs
+Iteration: 200 Loss: 0008.49585 Accuracy (Levenshtein): 096.34% Time taken: 019.97734 secs
+Iteration: 240 Loss: 0004.80372 Accuracy (Levenshtein): 097.38% Time taken: 017.41423 secs
+Iteration: 280 Loss: 0005.12521 Accuracy (Levenshtein): 097.35% Time taken: 018.03579 secs
+Iteration: 320 Loss: 0006.07911 Accuracy (Levenshtein): 096.84% Time taken: 022.62189 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0054.04804 Accuracy (Levenshtein): 084.58%
+Without teacher forcing: Accuracy (Levenshtein): 086.21%
+Time taken for this epoch: 5824.95915
+
+Epoch 60 / 57
+Iteration: 000 Loss: 0000.18706 Accuracy (Levenshtein): 099.55% Time taken: 005.35585 secs
+Iteration: 040 Loss: 0002.71195 Accuracy (Levenshtein): 098.13% Time taken: 011.74960 secs
+Iteration: 080 Loss: 0000.99978 Accuracy (Levenshtein): 099.14% Time taken: 011.86041 secs
+Iteration: 120 Loss: 0007.58857 Accuracy (Levenshtein): 097.56% Time taken: 012.62097 secs
+Iteration: 160 Loss: 0004.95789 Accuracy (Levenshtein): 096.84% Time taken: 018.53685 secs
+Iteration: 200 Loss: 0001.96622 Accuracy (Levenshtein): 097.99% Time taken: 018.77137 secs
+Iteration: 240 Loss: 0002.00507 Accuracy (Levenshtein): 099.28% Time taken: 017.83311 secs
+Iteration: 280 Loss: 0006.57589 Accuracy (Levenshtein): 095.93% Time taken: 020.22630 secs
+Iteration: 320 Loss: 0005.57518 Accuracy (Levenshtein): 097.06% Time taken: 022.98435 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0060.50750 Accuracy (Levenshtein): 084.11%
+Without teacher forcing: Accuracy (Levenshtein): 086.89%
+Time taken for this epoch: 5879.37545
+
+Epoch 61 / 57
+Iteration: 000 Loss: 0000.21464 Accuracy (Levenshtein): 099.54% Time taken: 005.32810 secs
+Iteration: 040 Loss: 0014.84504 Accuracy (Levenshtein): 097.36% Time taken: 011.68895 secs
+Iteration: 080 Loss: 0002.88290 Accuracy (Levenshtein): 098.93% Time taken: 011.55220 secs
+Iteration: 120 Loss: 0003.46117 Accuracy (Levenshtein): 098.59% Time taken: 010.60158 secs
+Iteration: 160 Loss: 0003.62090 Accuracy (Levenshtein): 097.76% Time taken: 018.00985 secs
+Iteration: 200 Loss: 0004.59329 Accuracy (Levenshtein): 097.96% Time taken: 020.18339 secs
+Iteration: 240 Loss: 0001.74568 Accuracy (Levenshtein): 099.23% Time taken: 017.16482 secs
+Iteration: 280 Loss: 0003.42382 Accuracy (Levenshtein): 097.27% Time taken: 018.61137 secs
+Iteration: 320 Loss: 0006.70898 Accuracy (Levenshtein): 096.24% Time taken: 025.55967 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0055.45604 Accuracy (Levenshtein): 086.44%
+Without teacher forcing: Accuracy (Levenshtein): 088.00%
+Time taken for this epoch: 5810.21423
+
+Epoch 62 / 57
+Iteration: 000 Loss: 0000.12297 Accuracy (Levenshtein): 100.00% Time taken: 005.87772 secs
+Iteration: 040 Loss: 0002.90740 Accuracy (Levenshtein): 097.67% Time taken: 012.06991 secs
+Iteration: 080 Loss: 0001.20286 Accuracy (Levenshtein): 098.70% Time taken: 011.88503 secs
+Iteration: 120 Loss: 0000.67302 Accuracy (Levenshtein): 099.76% Time taken: 012.39367 secs
+Iteration: 160 Loss: 0002.65487 Accuracy (Levenshtein): 098.98% Time taken: 018.44050 secs
+Iteration: 200 Loss: 0002.12944 Accuracy (Levenshtein): 098.68% Time taken: 016.82918 secs
+Iteration: 240 Loss: 0002.68831 Accuracy (Levenshtein): 098.24% Time taken: 017.65351 secs
+Iteration: 280 Loss: 0001.74079 Accuracy (Levenshtein): 098.70% Time taken: 016.93925 secs
+Iteration: 320 Loss: 0012.36393 Accuracy (Levenshtein): 096.37% Time taken: 026.34841 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0051.30615 Accuracy (Levenshtein): 086.67%
+Without teacher forcing: Accuracy (Levenshtein): 088.30%
+Time taken for this epoch: 5983.42285
+
+Epoch 63 / 57
+Iteration: 000 Loss: 0000.14823 Accuracy (Levenshtein): 099.61% Time taken: 005.90592 secs
+Iteration: 040 Loss: 0002.08512 Accuracy (Levenshtein): 098.36% Time taken: 013.07248 secs
+Iteration: 080 Loss: 0001.01508 Accuracy (Levenshtein): 099.32% Time taken: 012.01613 secs
+Iteration: 120 Loss: 0003.69474 Accuracy (Levenshtein): 098.33% Time taken: 011.79586 secs
+Iteration: 160 Loss: 0010.83240 Accuracy (Levenshtein): 097.33% Time taken: 022.58484 secs
+Iteration: 200 Loss: 0004.32029 Accuracy (Levenshtein): 097.97% Time taken: 018.04360 secs
+Iteration: 240 Loss: 0004.18096 Accuracy (Levenshtein): 097.64% Time taken: 018.74645 secs
+Iteration: 280 Loss: 0001.84696 Accuracy (Levenshtein): 098.96% Time taken: 019.42386 secs
+Iteration: 320 Loss: 0004.68626 Accuracy (Levenshtein): 096.77% Time taken: 026.87546 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0051.48236 Accuracy (Levenshtein): 086.56%
+Without teacher forcing: Accuracy (Levenshtein): 088.35%
+Time taken for this epoch: 5918.53771
+
+Epoch 64 / 57
+Iteration: 000 Loss: 0000.09551 Accuracy (Levenshtein): 100.00% Time taken: 005.69092 secs
+Iteration: 040 Loss: 0002.45550 Accuracy (Levenshtein): 098.34% Time taken: 012.10821 secs
+Iteration: 080 Loss: 0000.70702 Accuracy (Levenshtein): 099.65% Time taken: 012.13350 secs
+Iteration: 120 Loss: 0001.29000 Accuracy (Levenshtein): 099.06% Time taken: 013.10413 secs
+Iteration: 160 Loss: 0007.44311 Accuracy (Levenshtein): 097.09% Time taken: 018.43619 secs
+Iteration: 200 Loss: 0002.54358 Accuracy (Levenshtein): 098.74% Time taken: 018.31204 secs
+Iteration: 240 Loss: 0005.19855 Accuracy (Levenshtein): 097.35% Time taken: 017.70218 secs
+Iteration: 280 Loss: 0005.45061 Accuracy (Levenshtein): 097.26% Time taken: 021.67008 secs
+Iteration: 320 Loss: 0005.33715 Accuracy (Levenshtein): 097.37% Time taken: 026.62020 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0063.07966 Accuracy (Levenshtein): 083.77%
+Without teacher forcing: Accuracy (Levenshtein): 086.56%
+Time taken for this epoch: 5914.70485
+
+Epoch 65 / 57
+Iteration: 000 Loss: 0000.44503 Accuracy (Levenshtein): 099.72% Time taken: 005.63062 secs
+Iteration: 040 Loss: 0001.39513 Accuracy (Levenshtein): 098.96% Time taken: 012.09015 secs
+Iteration: 080 Loss: 0002.41990 Accuracy (Levenshtein): 098.83% Time taken: 013.74111 secs
+Iteration: 120 Loss: 0004.16958 Accuracy (Levenshtein): 098.27% Time taken: 011.64152 secs
+Iteration: 160 Loss: 0003.09739 Accuracy (Levenshtein): 097.87% Time taken: 018.14609 secs
+Iteration: 200 Loss: 0009.66119 Accuracy (Levenshtein): 098.73% Time taken: 018.17763 secs
+Iteration: 240 Loss: 0002.22031 Accuracy (Levenshtein): 098.45% Time taken: 016.10861 secs
+Iteration: 280 Loss: 0001.15375 Accuracy (Levenshtein): 099.47% Time taken: 017.07012 secs
+Iteration: 320 Loss: 0010.11363 Accuracy (Levenshtein): 095.43% Time taken: 025.39556 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0049.53394 Accuracy (Levenshtein): 086.63%
+Without teacher forcing: Accuracy (Levenshtein): 088.31%
+Time taken for this epoch: 5671.57779
+
+Epoch 66 / 57
+Iteration: 000 Loss: 0000.17498 Accuracy (Levenshtein): 099.82% Time taken: 005.62375 secs
+Iteration: 040 Loss: 0000.89659 Accuracy (Levenshtein): 098.99% Time taken: 011.30898 secs
+Iteration: 080 Loss: 0001.41524 Accuracy (Levenshtein): 098.61% Time taken: 010.60237 secs
+Iteration: 120 Loss: 0001.28676 Accuracy (Levenshtein): 098.95% Time taken: 011.57202 secs
+Iteration: 160 Loss: 0003.58168 Accuracy (Levenshtein): 097.79% Time taken: 017.56250 secs
+Iteration: 200 Loss: 0005.19490 Accuracy (Levenshtein): 098.21% Time taken: 016.47824 secs
+Iteration: 240 Loss: 0002.12834 Accuracy (Levenshtein): 098.73% Time taken: 018.12531 secs
+Iteration: 280 Loss: 0001.67185 Accuracy (Levenshtein): 098.81% Time taken: 019.49348 secs
+Iteration: 320 Loss: 0002.52555 Accuracy (Levenshtein): 098.81% Time taken: 024.77834 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0060.94850 Accuracy (Levenshtein): 084.94%
+Without teacher forcing: Accuracy (Levenshtein): 087.53%
+Time taken for this epoch: 5605.82833
+
+Epoch 67 / 57
+Iteration: 000 Loss: 0000.16687 Accuracy (Levenshtein): 099.72% Time taken: 005.44691 secs
+Iteration: 040 Loss: 0001.00131 Accuracy (Levenshtein): 099.52% Time taken: 010.54305 secs
+Iteration: 080 Loss: 0001.50647 Accuracy (Levenshtein): 098.99% Time taken: 011.83821 secs
+Iteration: 120 Loss: 0000.97002 Accuracy (Levenshtein): 099.31% Time taken: 011.16977 secs
+Iteration: 160 Loss: 0003.31465 Accuracy (Levenshtein): 098.59% Time taken: 016.54680 secs
+Iteration: 200 Loss: 0001.84860 Accuracy (Levenshtein): 098.84% Time taken: 016.92335 secs
+Iteration: 240 Loss: 0001.53484 Accuracy (Levenshtein): 099.08% Time taken: 017.40830 secs
+Iteration: 280 Loss: 0005.88998 Accuracy (Levenshtein): 096.68% Time taken: 017.20124 secs
+Iteration: 320 Loss: 0047.75933 Accuracy (Levenshtein): 097.01% Time taken: 025.74583 secs
+
+Evaluating on Validation Set
+With teacher forcing: Loss: 0044.77187 Accuracy (Levenshtein): 088.61%
+Without teacher forcing: Accuracy (Levenshtein): 089.67%
+Time taken for this epoch: 5723.33155
+Terminating at user's request
+
+Reporting evaluations on best model
+With teacher forcing: Loss: 0042.21301 Accuracy (Levenshtein): 088.66%
+Without teacher forcing: Accuracy (Levenshtein): 089.40%
+
+--------------------------------------------------
+Evaluating (Greedy search)
+--------------------------------------------------
+Size of evaluation dataset: 1813
+With teacher forcing: Loss: 0036.09781 Accuracy (Levenshtein): 088.51%
+Without teacher forcing: Accuracy (Levenshtein): 089.52%
+
+--------------------------------------------------
+Evaluating (Beam search)
+--------------------------------------------------
+Size of evaluation dataset: 1813
+With teacher forcing: Loss: 0037.25925 Accuracy (Levenshtein): 088.40%
+Without teacher forcing: Accuracy (Levenshtein): 090.07%
