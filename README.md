@@ -1,3 +1,7 @@
+**For a detailed description of this project visit: https://shehryar-malik.github.io/theses/sp**
+
+---
+
 This repository implements three deep learning architectures using TensorFlow.
 
 1. RNN-CTC Architectures
@@ -7,14 +11,14 @@ This repository implements three deep learning architectures using TensorFlow.
 ## Directory Structure
 
 ```
-configs								contains .json config files for the models
+configs							contains .json config files for the models
 
 data						
 	*/data_folder_name				folder name needs to be set in the config file
     	images						images in .jpg, .png or .jpeg format
     	labels
     		gt_char.csv				labels to run a character-level model
-			lt_char.csv				contains the ids to character map
+			lt_char.csv			contains the ids to character map
     		gt_lig.csv				labels to run a ligature-level model
     		lt_lig.csv				contains the ids to ligature map
 
@@ -22,48 +26,48 @@ debugger
 	custom_filters.py				used for implementing filters for tfdebugger
 
 fonts
-	jameel_noori_nastaleeq.ttf      Urdu font
+	jameel_noori_nastaleeq.ttf      		Urdu font
 
-gui									implelements a graphical user interface
+gui							implelements a graphical user interface
 	configs							contains .json config files used by the GUI
 	abtform.py						layout of the "About" dialog box
 	docsform.py						layout of the "Documentation" dialog box
 	termsform.py					layout of the "Terms and Conditions" dialog box
 	run_gui.py						starts the GUI and handles generated events
-								    (menu selections and button presses)
+								(menu selections and button presses)
 	uhw_rc.py						resource file containing fonts and icons used
 	uiform.py						layout of the main window; made with Qt Designer
 	waitingspinnerwidget.py			custom Qt widget for "loading" spinner icons**   
 
 models
 	model_class.py					parent class of all models 
-	encoder.py						uses RNNs to encode inputs
-	rnn_ctc.py						implements the RNN-CTC model
-	cnn.py							implements a convolutional network
+	encoder.py					uses RNNs to encode inputs
+	rnn_ctc.py					implements the RNN-CTC model
+	cnn.py						implements a convolutional network
 	cnn_rnn_ctc.py					implements the CNN_RNN_CTC model
-	decoder.py						implements an attention-based decoder
+	decoder.py					implements an attention-based decoder
 	encoder_decoder.py				implements the Encoder_Decoder model
-	lm.py							implements prefix beam search
-	ngrams.py**						implements an n-grams language model
-	helpers.py						implements some helper functions
+	lm.py						implements prefix beam search
+	ngrams.py**					implements an n-grams language model
+	helpers.py					implements some helper functions
 
-trained_models						contains parameters of previously trained models
-	*/save_path						needs to set correctly in the config file
+trained_models					contains parameters of previously trained models
+	*/save_path					needs to set correctly in the config file
 		model_name					contains the trained model's parameters
-			checkpoint				used by TensorFlow's model restoring function
-			model_name.data-*		used by TensorFlow's model restoring function
-			model_name.index		used by TensorFlow's model restoring function
-			model_name.meta			used by TensorFlow's model restoring function
-			constants.pkl			contains some constants needed during inference
-			histories.pkl			contains loss history, accuracy history etc
-			split_indices.pkl		stores the train/val split during training		
+			checkpoint					used by TensorFlow's model restoring function
+			model_name.data-*				used by TensorFlow's model restoring function
+			model_name.index				used by TensorFlow's model restoring function
+			model_name.meta					used by TensorFlow's model restoring function
+			constants.pkl					contains some constants needed during inference
+			histories.pkl					contains loss history, accuracy history etc
+			split_indices.pkl				stores the train/val split during training
 		Tensorboard					contains files for Tensorboard visualizations
-		analyzer_*.csv				outputs of model_analyzer (* is the decoder type)
-		model_name.log				the log file for training & evaluation processes
+		analyzer_*.csv					outputs of model_analyzer (* is the decoder type)
+		model_name.log					the log file for training & evaluation processes
 		plots.png					training polts (loss vs epoch, grad norm vs epoch)
-		attention_images****		shows the attention mechanism on an image
-		infer_alignment.mp4****		combines attention images into a video
-		infer_alignment.png****		shows the alignments for an image
+		attention_images****				shows the attention mechanism on an image
+		infer_alignment.mp4****				combines attention images into a video
+		infer_alignment.png****				shows the alignments for an image
 
 utils
 	accuracy_metrics.py				implements accuracy calculating functions
@@ -72,18 +76,17 @@ utils
 	image_utils.py					implements preprocessing functions for images
 	model_analyzer.py				used for analyzing trained models
 	data_analyzer.py				calculates attributes of the dataset
-	helpers.py						some helper functions
+	helpers.py					some helper functions
 	
-dump								discarded code; retained because of emotional
-									attachments 
+dump							discarded code; retained because of emotional attachments!!!
 
 launch_gui.py						launches the graphical user interface
 requirements.txt					packages required to run code in this repository
 run_model.py						provides a command line interface for the code
 zip_files.sh						script to zip files in this repository
-README.md							what you are reading right now
+README.md						what you are reading right now
 ---------------------------------------------------------------------------------------
-**   This has been taken from: https://github.com/z3ntu/QtWaitingSpinner
+**   This has been adapted from: https://github.com/z3ntu/QtWaitingSpinner
 ***  The entire file is taken (with slight modifications) from:
      https://github.com/giovannirescia/PLN-2015/tree/practico4/languagemodeling
 **** Only in the case of Encoder-Decoder models
