@@ -1,4 +1,4 @@
-**For a detailed description of this project visit: https://shehryar-malik.github.io/theses/sp**
+**This project was done in collaboration with [Naeem Maqsood](https://github.com/shehryar-malik/Urdu-Handwriting-Recognition-using-Deep-Learning/) and Abdur Rehman Ali. For a detailed description visit: https://shehryar-malik.github.io/theses/sp.**
 
 ---
 
