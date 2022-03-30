@@ -1,8 +1,6 @@
-**This project was done in collaboration with [Naeem Maqsood](https://github.com/MNMaqsood) and Abdur Rehman Ali. For a detailed description visit: https://shehryar-malik.github.io/theses/sp.**
+Status: Archive (code is provided as-is, no updates expected)
 
----
-
-This repository implements three deep learning architectures using TensorFlow.
+This is an open-source OCR for Urdu handwritten documents. It contains three deep learning architectures built using TensorFlow 1.x.
 
 1. RNN-CTC Architectures
 2. CNN-RNN-CTC Architecture
